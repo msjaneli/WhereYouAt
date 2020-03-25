@@ -134,22 +134,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNy-4A-RuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762.3188405797105" y="56.919642857142854"/>
+            <point key="canvasLocation" x="2822" y="-50"/>
         </scene>
-        <!--View Controller-->
+        <!--Account-->
         <scene sceneID="fHP-X4-wEW">
             <objects>
                 <viewController id="lpZ-EG-IIY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="62s-cd-ltr">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cy1-Px-IS8"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Account" selectedImage="person.fill" catalog="system" id="Z0n-HU-qPE"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMp-ED-Osv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2762" y="719"/>
+            <point key="canvasLocation" x="2822" y="732"/>
+        </scene>
+        <!--Friends-->
+        <scene sceneID="ukN-9l-Ppx">
+            <objects>
+                <viewController id="JQa-4S-02g" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0zd-i6-ghK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Ssk-qR-wJq"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Friends" selectedImage="person.3.fill" catalog="system" id="76s-TJ-Sjs"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cY1-f3-iWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2390" y="1559"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="u3o-z6-rjF">
@@ -399,11 +416,14 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="5h6-sq-pQv"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="OmP-uc-cge">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
                         <segue destination="mxp-ET-JUY" kind="relationship" relationship="viewControllers" id="gGe-s0-LCE"/>
+                        <segue destination="JQa-4S-02g" kind="relationship" relationship="viewControllers" id="KA1-RU-gFh"/>
+                        <segue destination="lpZ-EG-IIY" kind="relationship" relationship="viewControllers" id="nH5-BM-9kL"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpH-rR-Sdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -414,6 +434,8 @@
     <resources>
         <image name="arrow.right.square.fill" catalog="system" width="64" height="56"/>
         <image name="mappin" catalog="system" width="52" height="64"/>
+        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
     <color key="tintColor" red="0.96862745100000003" green="0.61014878919495119" blue="0.33391242803984755" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
