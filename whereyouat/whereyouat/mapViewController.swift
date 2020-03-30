@@ -27,6 +27,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
+            myMap.showsUserLocation = true
         }
     }
     
@@ -38,6 +39,13 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     if let userLocation = locations.first {
         print("latitude = \(userLocation.coordinate.latitude)")
         print("longitude = \(userLocation.coordinate.longitude)")
+        
+        let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+        
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+               let region = MKCoordinateRegion(center: myLocation, span: span)
+               myMap.setRegion(region, animated: true)
+
     }
     
     // Call stopUpdatingLocation() to stop listening for location updates,
