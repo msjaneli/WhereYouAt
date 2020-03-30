@@ -100,15 +100,40 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wHu-hv-YEG">
-                                <rect key="frame" x="0.0" y="73" width="414" height="618"/>
+                                <rect key="frame" x="0.0" y="116" width="414" height="575"/>
                             </mapView>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prB-L3-E6W">
-                                <rect key="frame" x="126" y="712" width="162" height="29"/>
+                                <rect key="frame" x="90" y="699" width="234" height="50"/>
                                 <color key="backgroundColor" red="0.73333333333333328" green="0.8784313725490196" blue="0.94117647058823528" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="67p-4h-OfD"/>
+                                    <constraint firstAttribute="height" constant="50" id="67p-4h-OfD"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
                                 <state key="normal" title="Input my Status">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="hjv-ut-cGf" kind="show" id="rrS-6p-cXa"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QCy-zs-p13">
+                                <rect key="frame" x="23" y="20" width="74" height="30"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.87843137250000003" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="74" id="TPw-hx-eX9"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Guide">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dg3-qd-miQ">
+                                <rect key="frame" x="288" y="20" width="106" height="30"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.87843137250000003" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="7dU-bZ-sXY"/>
+                                </constraints>
+                                <state key="normal" title="Add Friends">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
@@ -117,17 +142,26 @@
                         <constraints>
                             <constraint firstItem="prB-L3-E6W" firstAttribute="centerX" secondItem="SPm-8X-B8P" secondAttribute="centerX" id="2uu-2P-ciF"/>
                             <constraint firstItem="prB-L3-E6W" firstAttribute="centerX" secondItem="wHu-hv-YEG" secondAttribute="centerX" id="5uu-vq-Z8t"/>
-                            <constraint firstItem="PIR-cb-zBq" firstAttribute="bottom" secondItem="prB-L3-E6W" secondAttribute="bottom" constant="18" id="DsX-QK-1WV"/>
+                            <constraint firstItem="QCy-zs-p13" firstAttribute="top" secondItem="PIR-cb-zBq" secondAttribute="top" constant="20" id="CWM-3B-2qw"/>
+                            <constraint firstItem="PIR-cb-zBq" firstAttribute="bottom" secondItem="prB-L3-E6W" secondAttribute="bottom" constant="10" id="DsX-QK-1WV"/>
                             <constraint firstItem="wHu-hv-YEG" firstAttribute="leading" secondItem="SPm-8X-B8P" secondAttribute="leading" id="EPF-cD-gIK"/>
-                            <constraint firstItem="prB-L3-E6W" firstAttribute="leading" secondItem="PIR-cb-zBq" secondAttribute="leading" constant="126" id="Gr3-0M-pZh"/>
-                            <constraint firstItem="prB-L3-E6W" firstAttribute="top" secondItem="wHu-hv-YEG" secondAttribute="bottom" constant="21" id="m27-Fh-afT"/>
-                            <constraint firstItem="wHu-hv-YEG" firstAttribute="top" secondItem="PIR-cb-zBq" secondAttribute="top" constant="73" id="s7C-sR-deU"/>
+                            <constraint firstItem="QCy-zs-p13" firstAttribute="baseline" secondItem="dg3-qd-miQ" secondAttribute="baseline" id="F5O-Hn-Xds"/>
+                            <constraint firstItem="prB-L3-E6W" firstAttribute="leading" secondItem="PIR-cb-zBq" secondAttribute="leading" constant="90" id="Gr3-0M-pZh"/>
+                            <constraint firstItem="QCy-zs-p13" firstAttribute="leading" secondItem="PIR-cb-zBq" secondAttribute="leading" constant="23" id="LOn-Ie-k6E"/>
+                            <constraint firstItem="dg3-qd-miQ" firstAttribute="trailing" secondItem="SPm-8X-B8P" secondAttribute="trailingMargin" id="Qow-1W-LS4"/>
+                            <constraint firstItem="dg3-qd-miQ" firstAttribute="top" secondItem="PIR-cb-zBq" secondAttribute="top" constant="20" id="Zcj-hH-BiA"/>
+                            <constraint firstItem="dg3-qd-miQ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="QCy-zs-p13" secondAttribute="trailing" constant="8" symbolic="YES" id="aNc-tC-y30"/>
+                            <constraint firstItem="prB-L3-E6W" firstAttribute="top" secondItem="wHu-hv-YEG" secondAttribute="bottom" constant="8" id="m27-Fh-afT"/>
+                            <constraint firstItem="wHu-hv-YEG" firstAttribute="top" secondItem="PIR-cb-zBq" secondAttribute="top" constant="116" id="s7C-sR-deU"/>
+                            <constraint firstItem="PIR-cb-zBq" firstAttribute="trailing" secondItem="dg3-qd-miQ" secondAttribute="trailing" constant="20" id="tjT-Ln-7hD"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="PIR-cb-zBq"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Map" selectedImage="mappin" catalog="system" id="ITf-tb-A7Z"/>
                     <navigationItem key="navigationItem" id="pCy-BP-G4P"/>
                     <connections>
+                        <outlet property="addFriendsButton" destination="dg3-qd-miQ" id="niq-9O-27n"/>
+                        <outlet property="guideButton" destination="QCy-zs-p13" id="nNA-nl-s0m"/>
                         <outlet property="inputStatusButton" destination="prB-L3-E6W" id="4vR-yX-VMx"/>
                         <outlet property="myMap" destination="wHu-hv-YEG" id="kzv-Kg-6kY"/>
                     </connections>
@@ -135,6 +169,97 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNy-4A-RuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2821.739130434783" y="-50.223214285714285"/>
+        </scene>
+        <!--Status View Controller-->
+        <scene sceneID="k3O-t7-iuz">
+            <objects>
+                <viewController id="hjv-ut-cGf" customClass="statusViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TOJ-w1-bsz">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Zkr-pv-dmh">
+                                <rect key="frame" x="0.0" y="116" width="414" height="591"/>
+                            </mapView>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kDg-sR-BMC">
+                                <rect key="frame" x="23" y="20" width="74" height="30"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.87843137250000003" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="74" id="1Vj-hB-8t6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Guide">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="10d-Iy-bsD">
+                                <rect key="frame" x="288" y="20" width="106" height="30"/>
+                                <color key="backgroundColor" red="0.73333333329999995" green="0.87843137250000003" blue="0.94117647059999998" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="106" id="Xen-uQ-mvA"/>
+                                </constraints>
+                                <state key="normal" title="Add Friends">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sde-W0-fjs">
+                                <rect key="frame" x="51" y="739" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="free">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BxF-3X-dnx">
+                                <rect key="frame" x="179" y="739" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="13"/>
+                                <state key="normal" title="studying">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SOR-hZ-ymI">
+                                <rect key="frame" x="301" y="739" width="56" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="15"/>
+                                <state key="normal" title="busy">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="oq2-US-rwL" firstAttribute="bottom" secondItem="Zkr-pv-dmh" secondAttribute="bottom" constant="101" id="83A-cs-lbt"/>
+                            <constraint firstItem="kDg-sR-BMC" firstAttribute="top" secondItem="oq2-US-rwL" secondAttribute="top" constant="20" id="DQo-Cy-TLJ"/>
+                            <constraint firstItem="10d-Iy-bsD" firstAttribute="top" secondItem="oq2-US-rwL" secondAttribute="top" constant="20" id="JPd-t4-bfr"/>
+                            <constraint firstItem="Zkr-pv-dmh" firstAttribute="leading" secondItem="oq2-US-rwL" secondAttribute="leading" id="Nec-e3-Sjd"/>
+                            <constraint firstItem="oq2-US-rwL" firstAttribute="trailing" secondItem="10d-Iy-bsD" secondAttribute="trailing" constant="20" id="TcS-zY-OCe"/>
+                            <constraint firstItem="10d-Iy-bsD" firstAttribute="baseline" secondItem="kDg-sR-BMC" secondAttribute="baseline" id="WIO-LY-iQf"/>
+                            <constraint firstItem="kDg-sR-BMC" firstAttribute="leading" secondItem="oq2-US-rwL" secondAttribute="leading" constant="23" id="Zm0-7Z-Eu4"/>
+                            <constraint firstItem="10d-Iy-bsD" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="kDg-sR-BMC" secondAttribute="trailing" constant="8" symbolic="YES" id="cMb-yr-t9m"/>
+                            <constraint firstItem="oq2-US-rwL" firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="kDg-sR-BMC" secondAttribute="trailing" symbolic="YES" id="ihD-X9-4ee"/>
+                            <constraint firstItem="Zkr-pv-dmh" firstAttribute="top" secondItem="oq2-US-rwL" secondAttribute="top" constant="116" id="jsV-Q8-AIm"/>
+                            <constraint firstItem="Zkr-pv-dmh" firstAttribute="centerX" secondItem="TOJ-w1-bsz" secondAttribute="centerX" id="rna-0Z-Vw0"/>
+                            <constraint firstItem="10d-Iy-bsD" firstAttribute="trailing" secondItem="TOJ-w1-bsz" secondAttribute="trailingMargin" id="xgJ-Wc-X13"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="oq2-US-rwL"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="fVT-dY-8ge"/>
+                    <connections>
+                        <outlet property="addFriendsButton" destination="10d-Iy-bsD" id="td8-ll-QO9"/>
+                        <outlet property="busyButton" destination="SOR-hZ-ymI" id="PE3-jE-Ktk"/>
+                        <outlet property="freeButton" destination="sde-W0-fjs" id="9oF-MJ-rBl"/>
+                        <outlet property="guideButton" destination="kDg-sR-BMC" id="9aa-YD-qFa"/>
+                        <outlet property="myMap" destination="Zkr-pv-dmh" id="sto-OH-TqC"/>
+                        <outlet property="studyingButton" destination="BxF-3X-dnx" id="9jb-Gg-zkh"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dfb-bT-sb0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3943" y="326"/>
         </scene>
         <!--Account-->
         <scene sceneID="fHP-X4-wEW">
@@ -437,5 +562,4 @@
         <image name="person.3.fill" catalog="system" width="71" height="34"/>
         <image name="person.fill" catalog="system" width="64" height="60"/>
     </resources>
-    <color key="tintColor" red="0.96862745100000003" green="0.61014878919495119" blue="0.33391242803984755" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
