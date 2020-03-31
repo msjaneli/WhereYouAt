@@ -16,16 +16,36 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var addFriendsButton: UIButton!
     
+    //free button
     @IBOutlet weak var freeButton: UIButton!
     
-  
+    @IBAction func freeButton(_ sender: UIButton) {
+        self.myStatus = "free"
+        print("Current Status: "+self.myStatus)
+    }
+    
+    //studying button
     @IBOutlet weak var studyingButton: UIButton!
     
+    @IBAction func studyingButton(_ sender: UIButton) {
+        self.myStatus = "studying"
+        print("Current Status: "+self.myStatus)
+    }
+    
+    //busy button
     @IBOutlet weak var busyButton: UIButton!
+    
+    @IBAction func busyButton(_ sender: UIButton) {
+        self.myStatus = "busy"
+        print("Current Status: "+self.myStatus)
+    }
+    
     
     @IBOutlet weak var myMap: MKMapView!
     
     let locationManager = CLLocationManager()
+    
+    var myStatus = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +65,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
         myMap.showsUserLocation = true
         
     }
+    
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
        // Get most recent CLLocation from array
