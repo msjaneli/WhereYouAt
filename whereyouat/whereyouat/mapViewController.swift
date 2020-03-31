@@ -21,8 +21,14 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     
     let locationManager = CLLocationManager()
     
+    var myStatus = String()
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.navigationController?.isNavigationBarHidden = true
+        
+        print(self.myStatus)
         
         self.inputStatusButton.layer.cornerRadius = 20
         
@@ -36,8 +42,25 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.startUpdatingLocation()
             myMap.showsUserLocation = true
+            myMap.showsBuildings = true
+            updateStatus(status: myStatus)
         }
+        
+        
     }
+    
+    func updateStatus(status: String){
+           switch(myStatus){
+                      case "free":
+                          myMap.tintColor = UIColor.green
+                      case "studying":
+                          myMap.tintColor = UIColor.yellow
+                      case "busy":
+                          myMap.tintColor = UIColor.red
+                      default:
+                          myMap.tintColor = UIColor.blue
+                  }
+       }
     
    // MARK: - CoreLocation Delegate Methods
    
@@ -51,10 +74,12 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
         
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-               let region = MKCoordinateRegion(center: myLocation, span: span)
-               myMap.setRegion(region, animated: true)
+        
+        let region = MKCoordinateRegion(center: myLocation, span: span)
+        myMap.setRegion(region, animated: true)
 
     }
+    
     
     // Call stopUpdatingLocation() to stop listening for location updates,
     // otherwise this function will be called every time when user location changes.

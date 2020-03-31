@@ -21,6 +21,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func freeButton(_ sender: UIButton) {
         self.myStatus = "free"
+        updateStatus(status:self.myStatus)
         print("Current Status: "+self.myStatus)
     }
     
@@ -29,6 +30,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func studyingButton(_ sender: UIButton) {
         self.myStatus = "studying"
+        updateStatus(status:self.myStatus)
         print("Current Status: "+self.myStatus)
     }
     
@@ -37,6 +39,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBAction func busyButton(_ sender: UIButton) {
         self.myStatus = "busy"
+        updateStatus(status:self.myStatus)
         print("Current Status: "+self.myStatus)
     }
     
@@ -64,6 +67,20 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         myMap.showsUserLocation = true
         
+        
+    }
+    
+    func updateStatus(status: String){
+        switch(myStatus){
+                   case "free":
+                       myMap.tintColor = UIColor.green
+                   case "studying":
+                       myMap.tintColor = UIColor.yellow
+                   case "busy":
+                       myMap.tintColor = UIColor.red
+                   default:
+                       myMap.tintColor = UIColor.blue
+               }
     }
     
     
@@ -85,14 +102,16 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     }
     
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        let destVC = segue.destination as! mapViewController
+        destVC.myStatus = self.myStatus
     }
-    */
+    
 
 }
