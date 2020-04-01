@@ -19,6 +19,7 @@ Allows user to invite friends to share their location by searching through the r
 ###### Events (stretch goal)
 Capability for users to schedule events (ex: going to the gym) and send notifications to their friends to join them.
 ## Audience
+We are aiming to target teens, college students and young adults located in more urban areas with this app. This demographic would be the most engaged in the social media component of the app and interested seeing their social network's location for a quick meet-up or chat.
 
 ## Rationale
 
