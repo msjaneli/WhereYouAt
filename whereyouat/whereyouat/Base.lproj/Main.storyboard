@@ -774,23 +774,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPc-hs-Il1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="guide" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zPc-hs-Il1">
                                 <rect key="frame" x="42" y="48" width="82" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.61014878920000004" blue="0.33391242799999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSk-TK-pOM">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PSk-TK-pOM">
                                 <rect key="frame" x="33" y="159" width="28" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.73293890250000004" blue="0.54655869509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="how to use this app!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-ZQ-C9u">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="how to use this app!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ta6-ZQ-C9u">
                                 <rect key="frame" x="42" y="91" width="154" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -809,32 +806,37 @@
                                 <color key="textColor" red="0.7819772156" green="0.71430198119999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKh-D9-ZLz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="add friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gKh-D9-ZLz">
                                 <rect key="frame" x="69" y="170" width="86" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19h-sr-sqX">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19h-sr-sqX">
                                 <rect key="frame" x="69" y="202" width="282" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="Hfz-fN-kE3"/>
+                                </constraints>
                                 <string key="text">what's the point if you don't add your friends? use the button below to connect with your friends through their phone number or Facebook.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDt-Lt-zcE">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iDt-Lt-zcE">
                                 <rect key="frame" x="324" y="603" width="46" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="46" id="FFF-pF-Wrt"/>
+                                </constraints>
                                 <color key="tintColor" red="0.9052893367" green="0.945184052" blue="0.86975058599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button" image="arrow.right.square.fill" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtE-Bq-pat">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WtE-Bq-pat">
                                 <rect key="frame" x="69" y="264" width="96" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="k5c-qx-Hmb"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="add friends">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -843,60 +845,58 @@
                                     <segue destination="o8b-rX-3ef" kind="show" id="wOE-rv-9Pa"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSa-sv-lZb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSa-sv-lZb">
                                 <rect key="frame" x="33" y="493" width="28" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.73293890250000004" blue="0.54655869509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="the map!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t90-E5-rNN">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="the map!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t90-E5-rNN">
                                 <rect key="frame" x="69" y="504" width="68" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-S6-PMH">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pZJ-S6-PMH">
                                 <rect key="frame" x="69" y="536" width="282" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <string key="text">the main interface of this app - view your friends and their statues, update your status, and get access to adding friends and viewing this guide</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-sa-R1f">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-sa-R1f">
                                 <rect key="frame" x="69" y="595" width="96" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="36" id="xEu-8E-PSG"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="the map">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="click the button and choose from one of the three options: &quot;free&quot;, &quot;studying&quot;, or &quot;busy&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjQ-O7-ALm">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="click the button and choose from one of the three options: &quot;free&quot;, &quot;studying&quot;, or &quot;busy&quot;" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xjQ-O7-ALm">
                                 <rect key="frame" x="69" y="358" width="282" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="RV7-h9-nF1"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVn-Ei-pN1">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dVn-Ei-pN1">
                                 <rect key="frame" x="33" y="315" width="28" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="30"/>
                                 <color key="textColor" red="0.96862745100000003" green="0.73293890250000004" blue="0.54655869509999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="input your status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-oN-fxg">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="input your status" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OoP-oN-fxg">
                                 <rect key="frame" x="69" y="326" width="126" height="24"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p00-hy-gQN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="p00-hy-gQN">
                                 <rect key="frame" x="71" y="417" width="96" height="36"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="input status">
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -907,6 +907,45 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xjQ-O7-ALm" firstAttribute="top" secondItem="OoP-oN-fxg" secondAttribute="bottom" constant="8" symbolic="YES" id="0cW-Ej-HT1"/>
+                            <constraint firstItem="pZJ-S6-PMH" firstAttribute="top" secondItem="t90-E5-rNN" secondAttribute="bottom" constant="8" symbolic="YES" id="0cl-Db-faG"/>
+                            <constraint firstItem="cSa-sv-lZb" firstAttribute="baseline" secondItem="t90-E5-rNN" secondAttribute="baseline" id="9An-KS-0j3"/>
+                            <constraint firstItem="p00-hy-gQN" firstAttribute="leading" secondItem="mhh-LM-qab" secondAttribute="leading" constant="71" id="9hq-B7-mT3"/>
+                            <constraint firstItem="pZJ-S6-PMH" firstAttribute="leading" secondItem="SU6-sa-R1f" secondAttribute="leading" id="A7Z-Dc-Qg0"/>
+                            <constraint firstItem="PSk-TK-pOM" firstAttribute="baseline" secondItem="gKh-D9-ZLz" secondAttribute="baseline" id="Cvf-Se-0gx"/>
+                            <constraint firstItem="t90-E5-rNN" firstAttribute="leading" secondItem="pZJ-S6-PMH" secondAttribute="leading" id="EKn-Ut-Jru"/>
+                            <constraint firstItem="xjQ-O7-ALm" firstAttribute="leading" secondItem="t90-E5-rNN" secondAttribute="leading" id="FIr-7x-bwL"/>
+                            <constraint firstItem="19h-sr-sqX" firstAttribute="top" secondItem="gKh-D9-ZLz" secondAttribute="bottom" constant="8" symbolic="YES" id="GNk-xE-ZVD"/>
+                            <constraint firstItem="xjQ-O7-ALm" firstAttribute="trailing" secondItem="pZJ-S6-PMH" secondAttribute="trailing" id="Jwc-EG-edc"/>
+                            <constraint firstItem="p00-hy-gQN" firstAttribute="top" secondItem="xjQ-O7-ALm" secondAttribute="bottom" constant="5" id="LPs-yF-KIO"/>
+                            <constraint firstItem="mhh-LM-qab" firstAttribute="bottom" secondItem="iDt-Lt-zcE" secondAttribute="bottom" constant="157" id="Muy-fD-2dq"/>
+                            <constraint firstItem="zPc-hs-Il1" firstAttribute="leading" secondItem="mhh-LM-qab" secondAttribute="leading" constant="42" id="RJL-A1-C8s"/>
+                            <constraint firstItem="p00-hy-gQN" firstAttribute="centerX" secondItem="ta6-ZQ-C9u" secondAttribute="centerX" id="T9N-aB-C3P"/>
+                            <constraint firstItem="mhh-LM-qab" firstAttribute="bottom" secondItem="cSa-sv-lZb" secondAttribute="bottom" constant="280" id="UCv-Cv-LZN"/>
+                            <constraint firstItem="mhh-LM-qab" firstAttribute="trailing" secondItem="iDt-Lt-zcE" secondAttribute="trailing" constant="44" id="W4I-lx-4cE"/>
+                            <constraint firstItem="19h-sr-sqX" firstAttribute="leading" secondItem="WtE-Bq-pat" secondAttribute="leading" id="Wn8-Kq-Zwy"/>
+                            <constraint firstItem="zPc-hs-Il1" firstAttribute="top" secondItem="mhh-LM-qab" secondAttribute="top" constant="48" id="XQ5-7Q-psi"/>
+                            <constraint firstItem="dVn-Ei-pN1" firstAttribute="leading" secondItem="cSa-sv-lZb" secondAttribute="leading" id="YHS-3L-vmw"/>
+                            <constraint firstItem="OoP-oN-fxg" firstAttribute="leading" secondItem="xjQ-O7-ALm" secondAttribute="leading" id="az6-R4-rrE"/>
+                            <constraint firstItem="gKh-D9-ZLz" firstAttribute="leading" secondItem="19h-sr-sqX" secondAttribute="leading" id="bD4-fG-wyi"/>
+                            <constraint firstItem="WtE-Bq-pat" firstAttribute="trailing" secondItem="SU6-sa-R1f" secondAttribute="trailing" id="bwY-Aw-CG2"/>
+                            <constraint firstItem="mhh-LM-qab" firstAttribute="bottom" secondItem="SU6-sa-R1f" secondAttribute="bottom" constant="177" id="cFQ-wx-6Hq"/>
+                            <constraint firstItem="WtE-Bq-pat" firstAttribute="top" secondItem="19h-sr-sqX" secondAttribute="bottom" constant="8" symbolic="YES" id="cZZ-E7-by6"/>
+                            <constraint firstItem="PSk-TK-pOM" firstAttribute="leading" secondItem="mhh-LM-qab" secondAttribute="leading" constant="33" id="cj5-Yg-4NW"/>
+                            <constraint firstItem="mhh-LM-qab" firstAttribute="trailing" secondItem="WtE-Bq-pat" secondAttribute="trailing" constant="249" id="e5C-vi-BMa"/>
+                            <constraint firstItem="19h-sr-sqX" firstAttribute="trailing" secondItem="xjQ-O7-ALm" secondAttribute="trailing" id="fei-Ey-eh2"/>
+                            <constraint firstItem="iDt-Lt-zcE" firstAttribute="top" secondItem="pZJ-S6-PMH" secondAttribute="bottom" constant="13" id="gZk-sT-ldf"/>
+                            <constraint firstItem="WtE-Bq-pat" firstAttribute="leading" secondItem="OoP-oN-fxg" secondAttribute="leading" id="jNS-el-zbt"/>
+                            <constraint firstItem="gKh-D9-ZLz" firstAttribute="leading" secondItem="PSk-TK-pOM" secondAttribute="trailing" constant="8" symbolic="YES" id="k0Y-hI-ev2"/>
+                            <constraint firstItem="PSk-TK-pOM" firstAttribute="top" secondItem="ta6-ZQ-C9u" secondAttribute="bottom" constant="44" id="lim-WN-F2B"/>
+                            <constraint firstItem="PSk-TK-pOM" firstAttribute="leading" secondItem="dVn-Ei-pN1" secondAttribute="leading" id="mph-ql-gJC"/>
+                            <constraint firstItem="SU6-sa-R1f" firstAttribute="top" secondItem="pZJ-S6-PMH" secondAttribute="bottom" constant="5" id="nkX-aM-oin"/>
+                            <constraint firstItem="zPc-hs-Il1" firstAttribute="leading" secondItem="ta6-ZQ-C9u" secondAttribute="leading" id="sIu-y7-hUI"/>
+                            <constraint firstItem="ta6-ZQ-C9u" firstAttribute="top" secondItem="zPc-hs-Il1" secondAttribute="bottom" constant="8" symbolic="YES" id="uwS-Tk-cgE"/>
+                            <constraint firstItem="OoP-oN-fxg" firstAttribute="top" secondItem="WtE-Bq-pat" secondAttribute="bottom" constant="32" id="vrh-1B-yAH"/>
+                            <constraint firstItem="dVn-Ei-pN1" firstAttribute="baseline" secondItem="OoP-oN-fxg" secondAttribute="baseline" id="wXm-28-nuC"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="mhh-LM-qab"/>
                     </view>
                     <navigationItem key="navigationItem" id="han-Pu-px3"/>
