@@ -20,7 +20,6 @@ wy@ (Where You At) is an iOS app designed to make casual meet-ups easier. wy@ is
 ######Events (stretch goal)
     Capability for users to schedule events (ex: going to the gym) and send notifications to their
     friends to join them.
-
 ## Audience
 
 ## Rationale
