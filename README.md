@@ -21,3 +21,5 @@ Capability for users to schedule events (ex: going to the gym) and send notifica
 ## Audience
 
 ## Rationale
+
+The reason we chose to design this app is because we saw a found a need for a more social "Find Your Friends" type of app. Instead of an app like "Find my Friends" that is more of a functional use, we wanted to integrate a social component as well and actively encourage users to find where each other are and _physically_ interact with each other.
