@@ -11,13 +11,16 @@ import MapKit
 import CoreLocation
 
 class mapViewController: UIViewController, CLLocationManagerDelegate {
-    @IBOutlet weak var inputStatusButton: UIButton!
     
     @IBOutlet weak var guideButton: UIButton!
     
     @IBOutlet weak var addFriendsButton: UIButton!
     
     @IBOutlet weak var myMap: MKMapView!
+    
+    @IBOutlet weak var freeButton: UIButton!
+    @IBOutlet weak var studyingButton: UIButton!
+    @IBOutlet weak var busyButton: UIButton!
     
     let locationManager = CLLocationManager()
     
@@ -30,11 +33,13 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         
         print(self.myStatus)
         
-        self.inputStatusButton.layer.cornerRadius = 20
-        
         self.guideButton.layer.cornerRadius = 15
-        
-        self.addFriendsButton.layer.cornerRadius = 15
+                
+        self.freeButton.layer.cornerRadius = 0.5 * freeButton.bounds.size.width
+              
+        self.studyingButton.layer.cornerRadius = 0.5 * studyingButton.bounds.size.width
+              
+        self.busyButton.layer.cornerRadius = 0.5 * busyButton.bounds.size.width
         
         locationManager.delegate = self
         locationManager.requestAlwaysAuthorization()
