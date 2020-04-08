@@ -45,6 +45,30 @@ class API {
                      ])
     }
     
+    func loginVerify(username: String, password: String, completionHandler:@escaping (Bool) -> ()) {
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+            if let err = err {
+                print("Error getting documents: \(err)")
+                completionHandler(false)
+            } else {
+                for document in querySnapshot!.documents {
+                    if(document.documentID == username) {
+                        let correctPass = (document.data()["password"])! as! String
+                        if(correctPass == password) {
+                            completionHandler(true)
+                            return
+                        }
+                    }
+                }
+                completionHandler(false)
+            }
+        }
+    }
+    
+//    func userLoginVerify(username: String, password: String) -> Bool{
+//
+//    }
+    
     func getUsers() {
         db.collection("users").getDocuments() { (querySnapshot, err) in
             if let err = err {

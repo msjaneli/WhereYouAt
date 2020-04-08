@@ -86,6 +86,11 @@
                         <color key="backgroundColor" red="1" green="0.99553632889768939" blue="0.98380050620283988" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="q5C-aU-HgD" id="xeB-a7-Mcm"/>
+                        <outlet property="password" destination="XOS-ac-wCV" id="WwM-lg-cQu"/>
+                        <outlet property="username" destination="Acm-mv-Oh6" id="Cd7-Op-rCS"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -934,7 +939,7 @@
         <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="dID-4X-HfL"/>
+        <segue reference="4wI-WJ-qnb"/>
         <segue reference="wOE-rv-9Pa"/>
     </inferredMetricsTieBreakers>
 </document>

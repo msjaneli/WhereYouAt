@@ -8,9 +8,13 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITextFieldDelegate {
 
     var api = API.sharedInstance
+    
+    @IBOutlet weak var username: UITextField!
+    @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var loginButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +23,10 @@ class ViewController: UIViewController {
         if Reachability.isConnectedToNetwork(){
             print("Connected to the Internet")
             api.setup()
-
+            username.delegate = self
+            password.delegate = self
+            loginButton.isUserInteractionEnabled = false
+            loginButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
          }
          else{
              print("No Connnection to Internet")
@@ -29,9 +36,32 @@ class ViewController: UIViewController {
              }))
              self.present(alert, animated: true, completion: nil)
          }
-
         
     }
+    
+    @objc func buttonClick() {
+         let userDefault = UserDefaults.standard
+         userDefault.set(username.text!, forKey: "username")
+     }
+     
+     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
+         if(!username.text!.isEmpty && !password.text!.isEmpty) {
+            api.loginVerify(username: username.text!, password: password.text!, completionHandler: { (success) -> Void in
+                if success {
+                    print("Login Successful")
+                    self.loginButton.isUserInteractionEnabled = true
+                } else {
+                    print("Login failed (incorrect username/password combination")
+                    self.loginButton.isUserInteractionEnabled = false
+                }
+            })
+
+         } else {
+             loginButton.isUserInteractionEnabled = false
+         }
+         return true
+         
+     }
 
 
 }
