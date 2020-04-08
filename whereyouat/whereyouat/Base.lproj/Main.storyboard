@@ -454,10 +454,10 @@
             </objects>
             <point key="canvasLocation" x="3534.7826086956525" y="1686.8303571428571"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Part One View Controller-->
         <scene sceneID="u3o-z6-rjF">
             <objects>
-                <viewController id="OXN-iJ-gWR" sceneMemberID="viewController">
+                <viewController id="OXN-iJ-gWR" customClass="CreatePartOneViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="9Ii-Ku-5IN">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -557,15 +557,20 @@
                         <viewLayoutGuide key="safeArea" id="1Eb-e7-ELW"/>
                     </view>
                     <navigationItem key="navigationItem" id="tO2-0Y-vbr"/>
+                    <connections>
+                        <outlet property="birthDate" destination="wgd-ip-Qff" id="uBw-7d-QS4"/>
+                        <outlet property="firstName" destination="3cA-Ca-Z1h" id="wx7-dE-CQX"/>
+                        <outlet property="lastName" destination="oya-8B-qUz" id="Hop-Hs-Ra0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ftq-tX-wDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="906" y="990"/>
         </scene>
-        <!--View Controller-->
+        <!--Create Part Two View Controller-->
         <scene sceneID="qD3-nD-Mtl">
             <objects>
-                <viewController id="d5q-25-6VT" sceneMemberID="viewController">
+                <viewController id="d5q-25-6VT" customClass="CreatePartTwoViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MzQ-4A-aNm">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -693,6 +698,13 @@
                         <viewLayoutGuide key="safeArea" id="M6c-3F-DLA"/>
                     </view>
                     <navigationItem key="navigationItem" id="cgF-GU-vux"/>
+                    <connections>
+                        <outlet property="confirmEmail" destination="K1F-xu-OHl" id="zfi-x4-el5"/>
+                        <outlet property="confirmPassword" destination="kMM-PZ-BYF" id="uMu-P4-gM1"/>
+                        <outlet property="email" destination="bJi-oZ-pu5" id="s4J-mU-Knb"/>
+                        <outlet property="password" destination="q5F-7A-CPb" id="IQa-2Y-niz"/>
+                        <outlet property="username" destination="vfZ-zf-DPS" id="ShU-Q2-0Kk"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyv-uY-0v1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -921,7 +933,7 @@
         <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4wI-WJ-qnb"/>
-        <segue reference="zJx-Cp-UWf"/>
+        <segue reference="dID-4X-HfL"/>
+        <segue reference="wOE-rv-9Pa"/>
     </inferredMetricsTieBreakers>
 </document>

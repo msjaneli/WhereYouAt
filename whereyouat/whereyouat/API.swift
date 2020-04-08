@@ -28,16 +28,17 @@ class API {
     db = Firestore.firestore()
     }
     
-    func userSignUp(){
+    func userSignUp(username: String, password: String, firstName: String, lastName: String, email: String, status: String, dob: String){
         // [START add_ada_lovelace]
                      // Add a new document with a generated ID
-        db.collection("users").document("samchan").setData([
-                         "username": "samchan",
-                         "password": "hello12345",
-                         "first": "Sam",
-                         "last": "Chan",
-                         "email":"samchan@duke.edu",
-                         "status": "",
+        db.collection("users").document(username).setData([
+                         "username": username,
+                         "password": password,
+                         "first": firstName,
+                         "last": lastName,
+                         "email": email,
+                         "status": status,
+                         "dob": dob,
                          "friends": []
                      ])
     }
@@ -54,12 +55,12 @@ class API {
         }
     }
     
-    func setStatus() {
-        db.collection("users").document("samchan").updateData(["status": "balling"])
+    func setStatus(username: String, status: String) {
+        db.collection("users").document(username).updateData(["status": status])
     }
     
-    func getUserFriends(){
-        let docRef = db.collection("users").document("janeli")
+    func getUserFriends(username: String){
+        let docRef = db.collection("users").document(username)
         docRef.getDocument { (document, error) in
         if let document = document, document.exists {
             let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
@@ -70,14 +71,14 @@ class API {
     }
     }
     
-    func addUserFriends(){
-        let docRef1 = db.collection("users").document("janeli")
+    func addUserFriends(username1: String, username2: String){
+        let docRef1 = db.collection("users").document(username1)
         docRef1.updateData([
-            "friends":FieldValue.arrayUnion(["samchan"])])
+            "friends":FieldValue.arrayUnion([username2])])
         
-        let docRef2 = db.collection("users").document("samchab")
+        let docRef2 = db.collection("users").document(username2)
         docRef2.updateData([
-            "friends":FieldValue.arrayUnion(["janeli"])])
+            "friends":FieldValue.arrayUnion([username1])])
     }
     
     func createEvent(){
@@ -88,8 +89,8 @@ class API {
         ])
     }
     
-    func updateLocation(locValue: CLLocationCoordinate2D){
-        let docRef1 = db.collection("users").document("janeli")
+    func updateLocation(username: String, locValue: CLLocationCoordinate2D){
+        let docRef1 = db.collection("users").document(username)
         docRef1.updateData(["location": locValue])
     }
     
