@@ -558,7 +558,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tO2-0Y-vbr"/>
                     <connections>
-                        <outlet property="birthDate" destination="wgd-ip-Qff" id="uBw-7d-QS4"/>
+                        <outlet property="dob" destination="wgd-ip-Qff" id="6Vq-9a-LCr"/>
                         <outlet property="firstName" destination="3cA-Ca-Z1h" id="wx7-dE-CQX"/>
                         <outlet property="lastName" destination="oya-8B-qUz" id="Hop-Hs-Ra0"/>
                     </connections>
@@ -703,6 +703,7 @@
                         <outlet property="confirmPassword" destination="kMM-PZ-BYF" id="uMu-P4-gM1"/>
                         <outlet property="email" destination="bJi-oZ-pu5" id="s4J-mU-Knb"/>
                         <outlet property="password" destination="q5F-7A-CPb" id="IQa-2Y-niz"/>
+                        <outlet property="registerButton" destination="YzW-Su-Rae" id="ulQ-sJ-m7h"/>
                         <outlet property="username" destination="vfZ-zf-DPS" id="ShU-Q2-0Kk"/>
                     </connections>
                 </viewController>

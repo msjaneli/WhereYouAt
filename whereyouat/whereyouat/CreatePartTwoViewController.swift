@@ -8,7 +8,7 @@
 
 import UIKit
 
-class CreatePartTwoViewController: UIViewController {
+class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var confirmEmail: UITextField!
@@ -21,17 +21,40 @@ class CreatePartTwoViewController: UIViewController {
     var lastName:String = ""
     var dob:Date = Date()
     
+    @IBOutlet weak var registerButton: UIButton!
+    
     var api = API.sharedInstance
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print(firstName)
-        print(lastName)
-        print(dob)
+        email.delegate = self
+        confirmEmail.delegate = self
+        password.delegate = self
+        confirmPassword.delegate = self
 
+        registerButton.isUserInteractionEnabled = false
+        registerButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
+    }
+    
+    @objc func buttonClick() {
+        let df = DateFormatter()
+        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        let dobString = df.string(from: dob)
+        api.userSignUp(username: username.text!, password: password.text!, firstName: firstName, lastName: lastName, email: email.text!, status: "", dob: dobString)
+    }
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
+        if(!username.text!.isEmpty && !password.text!.isEmpty && !email.text!.isEmpty && !confirmPassword.text!.isEmpty && !confirmEmail.text!.isEmpty && password.text == confirmPassword.text && email.text == confirmEmail.text) {
+            print("true")
+            print(username.text!)
+            registerButton.isUserInteractionEnabled = true
+
+        } else {
+            print("no")
+            registerButton.isUserInteractionEnabled = false
+        }
+        return true
         
-        // Do any additional setup after loading the view.
     }
     
 
