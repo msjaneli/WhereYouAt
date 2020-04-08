@@ -41,16 +41,15 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
         df.dateFormat = "yyyy-MM-dd hh:mm:ss"
         let dobString = df.string(from: dob)
         api.userSignUp(username: username.text!, password: password.text!, firstName: firstName, lastName: lastName, email: email.text!, status: "", dob: dobString)
+        let userDefault = UserDefaults.standard
+        userDefault.set(username.text!, forKey: "username")
     }
     
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
         if(!username.text!.isEmpty && !password.text!.isEmpty && !email.text!.isEmpty && !confirmPassword.text!.isEmpty && !confirmEmail.text!.isEmpty && password.text == confirmPassword.text && email.text == confirmEmail.text) {
-            print("true")
-            print(username.text!)
             registerButton.isUserInteractionEnabled = true
 
         } else {
-            print("no")
             registerButton.isUserInteractionEnabled = false
         }
         return true
