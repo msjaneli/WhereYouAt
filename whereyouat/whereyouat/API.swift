@@ -53,7 +53,7 @@ class API {
             } else {
                 for document in querySnapshot!.documents {
                     if(document.documentID == username) {
-                        let correctPass = (document.data()["password"])! as! String
+                        let correctPass = (document.data()["password"]) as? String ?? ""
                         if(correctPass == password) {
                             completionHandler(true)
                             return
@@ -83,6 +83,28 @@ class API {
     
     func setStatus(username: String, status: String) {
         db.collection("users").document(username).updateData(["status": status])
+        db.collection("users").document(username).getDocument{ (document, error) in
+            if let document = document, document.exists {
+                let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
+                print("Document data: \(dataDescription)")
+            } else {
+                print("Document does not exist")
+            }
+        }
+    }
+    
+    func getStatus(username: String) -> String {
+        var status = ""
+        let docRef = db.collection("users").document(username)
+        docRef.getDocument { (document, error) in
+            if let document = document, document.exists {
+                status = document.get("status") as? String ?? ""
+//                print(status)
+            } else {
+                print("Document does not exist")
+            }
+        }
+        return status
     }
     
     func getUserFriends(username: String){
@@ -99,7 +121,7 @@ class API {
     
     func addUserFriends(username1: String, username2: String){
         let docRef1 = db.collection("users").document(username1)
-        docRef1.updateData([
+        docRef1.setData([
             "friends":FieldValue.arrayUnion([username2])])
         
         let docRef2 = db.collection("users").document(username2)
@@ -115,9 +137,10 @@ class API {
         ])
     }
     
-    func updateLocation(username: String, locValue: CLLocationCoordinate2D){
+    func updateLocation(username: String, latValue: CLLocationCoordinate2D, longValue:CLLocationCoordinate2D){
         let docRef1 = db.collection("users").document(username)
-        docRef1.updateData(["location": locValue])
+        docRef1.updateData(["lat": latValue])
+        docRef1.updateData(["long": longValue])
     }
     
     

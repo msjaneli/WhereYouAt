@@ -22,6 +22,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var studyingButton: UIButton!
     @IBOutlet weak var busyButton: UIButton!
     
+    var api = API.sharedInstance
+
     let locationManager = CLLocationManager()
     
     var myStatus = String()
@@ -30,8 +32,6 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         
         self.navigationController?.isNavigationBarHidden = true
-        
-        print(self.myStatus)
         
         self.guideButton.layer.cornerRadius = 15
                 
@@ -48,24 +48,13 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.startUpdatingLocation()
             myMap.showsUserLocation = true
             myMap.showsBuildings = true
-            updateStatus(status: myStatus)
         }
+        
+          getStatus()
+          updateMyMarker()
         
         
     }
-    
-    func updateStatus(status: String){
-           switch(myStatus){
-                      case "free":
-                          myMap.tintColor = UIColor.green
-                      case "studying":
-                          myMap.tintColor = UIColor.yellow
-                      case "busy":
-                          myMap.tintColor = UIColor.red
-                      default:
-                          myMap.tintColor = UIColor.blue
-                  }
-       }
     
    // MARK: - CoreLocation Delegate Methods
    
@@ -114,6 +103,55 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
        }
    
 
+    @IBAction func setFreeStatus(_ sender: Any) {
+        myStatus = "free"
+        setStatus(status: myStatus)
+        print(self.myStatus)
+    }
+    @IBAction func setStudyingStatus(_ sender: Any) {
+        myStatus="studying"
+        setStatus(status: myStatus)
+        print(self.myStatus)
+    }
+    @IBAction func setBusyStatus(_ sender: Any) {
+        myStatus="busy"
+        setStatus(status: myStatus)
+        print(self.myStatus)
+    }
+    
+    func setStatus(status: String) {
+        let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
+        if((myUsername) != nil){
+            api.setStatus(username: myUsername!, status: status)
+            updateMyMarker()
+        }
+        else {
+            print("Error in setting status.")
+        }
+    }
+    
+    func getStatus(){
+        let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
+        if((myUsername) != nil){
+            myStatus = api.getStatus(username: myUsername!)
+            print("h")
+            print(self.myStatus)
+        }
+    }
+    
+    func updateMyMarker() {
+        switch(myStatus){
+            case "free":
+                myMap.tintColor = UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0)
+            case "studying":
+                myMap.tintColor = UIColor(red: 255.0/255.0, green: 249.0/255.0, blue: 157.0/255.0, alpha: 1.0)
+            case "busy":
+                myMap.tintColor = UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
+            default:
+                myMap.tintColor = UIColor.blue
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

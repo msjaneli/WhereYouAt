@@ -45,6 +45,7 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
         userDefault.set(username.text!, forKey: "username")
     }
     
+    //TODO: username & email should be unique, dob above 13?
     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
         if(!username.text!.isEmpty && !password.text!.isEmpty && !email.text!.isEmpty && !confirmPassword.text!.isEmpty && !confirmEmail.text!.isEmpty && password.text == confirmPassword.text && email.text == confirmEmail.text) {
             registerButton.isUserInteractionEnabled = true
