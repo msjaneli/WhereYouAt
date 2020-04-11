@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -209,10 +209,10 @@
             </objects>
             <point key="canvasLocation" x="2916" y="-734"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Friends View Controller-->
         <scene sceneID="MBK-vX-hI3">
             <objects>
-                <viewController id="o8b-rX-3ef" sceneMemberID="viewController">
+                <viewController id="o8b-rX-3ef" customClass="AddFriendsViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="JCL-Ix-Qh3">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -230,8 +230,8 @@
                                 <color key="textColor" red="0.96862745100000003" green="0.61014878920000004" blue="0.33391242799999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="phone number" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ7-rw-3lu">
-                                <rect key="frame" x="90" y="226" width="99" height="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aZ7-rw-3lu">
+                                <rect key="frame" x="90" y="226" width="68" height="17"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
                                 <color key="textColor" red="1" green="0.62355989469999995" blue="0.57290689500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -939,16 +939,16 @@
             <point key="canvasLocation" x="138" y="991"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.right.square.fill" catalog="system" width="64" height="56"/>
+        <image name="mappin" catalog="system" width="52" height="64"/>
+        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="person.badge.plus" catalog="system" width="64" height="58"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="4wI-WJ-qnb"/>
+        <segue reference="dID-4X-HfL"/>
         <segue reference="wOE-rv-9Pa"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
-        <image name="mappin" catalog="system" width="105" height="128"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
-        <image name="person.badge.plus" catalog="system" width="128" height="116"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
-    </resources>
 </document>
