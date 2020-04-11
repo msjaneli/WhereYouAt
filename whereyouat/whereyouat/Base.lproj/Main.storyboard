@@ -351,6 +351,7 @@
                                 </state>
                                 <connections>
                                     <action selector="addFriends:" destination="mSc-aD-oZY" eventType="touchUpInside" id="ddp-qn-eEZ"/>
+                                    <action selector="onSecondButtonClicked:" destination="uwf-Di-kfy" eventType="touchUpInside" id="ctz-l6-vtU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbY-4z-NDR">

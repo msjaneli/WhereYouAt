@@ -30,7 +30,11 @@ class AddFriendsViewController: UIViewController, UITextFieldDelegate {
 
         // Do any additional setup after loading the view.
     }
-    
+    //when clicking on add friends image on second screen, call addUserFriends
+    var api = API.sharedInstance
+    @IBAction func onSecondButtonClicked(_ sender: Any) {
+//        api.addUserFriends(username1: , username2: friendUsername.text!)
+    }
     // @objc func buttonClick()
     // api.addUserFriends(username1: username, username2: friendUsername)
     
