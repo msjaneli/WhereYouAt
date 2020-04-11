@@ -10,18 +10,15 @@ import UIKit
 
 class AddFriendsViewController: UIViewController, UITextFieldDelegate {
     
-    // IBOutlet weak var friendUsername: UITextField!
-    
-    // IBOutlet weak var addButton: UIButton!
-    
-    
-//    @IBOutlet weak var friendUsername: UITextField!
+    //enteredFriendName is the UITextField for the friend trying to be added
     @IBOutlet weak var enteredFriendName: UITextField!
+    // this sets the FriendUsername for the next screen
     @IBOutlet weak var setFriendUsername: UIButton!
+    // this completes the task of adding friends by calling api.addUserFriends function on the button click
     @IBOutlet weak var addFriendsButton: UIButton!
+    // this is the displayed username on the second screen
     @IBOutlet weak var friendUsername: UILabel!
-    friendUsername.text = enteredFriendName.text
-    
+    // changes the friendUsername to the input from the UITextField
     @IBAction func onFirstButtonClicked(_ sender: Any) {
         friendUsername.text = " \(enteredFriendName.text!)"
     }
