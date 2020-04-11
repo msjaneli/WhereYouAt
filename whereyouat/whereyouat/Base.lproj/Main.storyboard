@@ -34,6 +34,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="userName:" destination="8a9-xz-ynD" eventType="editingDidEnd" id="F5N-5j-XCV"/>
+                                    <action selector="usernameLabel:" destination="8a9-xz-ynD" eventType="editingDidEnd" id="1Nv-J2-PBE"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOS-ac-wCV">
                                 <rect key="frame" x="84" y="446" width="247" height="34"/>
@@ -93,6 +97,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <exit id="8a9-xz-ynD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="137.68115942028987" y="117.85714285714285"/>
         </scene>
@@ -252,6 +257,8 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
+                                    <action selector="onFirstButtonClicked:" destination="o8b-rX-3ef" eventType="touchUpInside" id="nwr-gQ-FKe"/>
+                                    <action selector="setFriendUsername:" destination="o8b-rX-3ef" eventType="touchUpInside" id="v3f-Mw-K4U"/>
                                     <segue destination="uwf-Di-kfy" kind="show" id="FCQ-MS-tro"/>
                                 </connections>
                             </button>
@@ -297,15 +304,21 @@
                         <viewLayoutGuide key="safeArea" id="JXa-am-UHC"/>
                     </view>
                     <navigationItem key="navigationItem" id="jew-Ne-4l6"/>
+                    <connections>
+                        <outlet property="addFriendsButton" destination="jKt-J7-9Up" id="RC1-6H-NGK"/>
+                        <outlet property="enteredFriendName" destination="cVz-I1-OFs" id="XyR-Ed-ZwT"/>
+                        <outlet property="friendUsername" destination="cVz-I1-OFs" id="KYX-d6-NEI"/>
+                        <outlet property="setFriendUsername" destination="jKt-J7-9Up" id="bad-rg-zGg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fb-4F-1Sv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3993" y="72"/>
         </scene>
-        <!--View Controller-->
+        <!--Add Friends View Controller-->
         <scene sceneID="zHs-zw-vdP">
             <objects>
-                <viewController id="uwf-Di-kfy" sceneMemberID="viewController">
+                <viewController id="uwf-Di-kfy" customClass="AddFriendsViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yiz-UV-Eai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -336,14 +349,29 @@
                                 <state key="normal" title="Button" image="person.badge.plus" catalog="system">
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
+                                <connections>
+                                    <action selector="addFriends:" destination="mSc-aD-oZY" eventType="touchUpInside" id="ddp-qn-eEZ"/>
+                                </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbY-4z-NDR">
+                                <rect key="frame" x="93" y="408" width="228" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="29"/>
+                                <color key="textColor" red="0.96862745100000003" green="0.61014878920000004" blue="0.33391242799999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="cQ0-nQ-UX8"/>
                     </view>
                     <navigationItem key="navigationItem" id="9Ke-aK-NlU"/>
+                    <connections>
+                        <outlet property="addFriendsButton" destination="rW4-JE-Kp4" id="lkv-G9-AIB"/>
+                        <outlet property="friendUsername" destination="xbY-4z-NDR" id="5QI-es-u9H"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eih-9U-FPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="mSc-aD-oZY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4788" y="72"/>
         </scene>
@@ -530,6 +558,9 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="eree:" destination="7lC-b3-Ak5" eventType="editingDidEnd" id="oHz-0W-u3H"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oya-8B-qUz">
                                 <rect key="frame" x="69" y="372" width="285" height="34"/>
@@ -578,6 +609,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ftq-tX-wDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="7lC-b3-Ak5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="906" y="990"/>
         </scene>
