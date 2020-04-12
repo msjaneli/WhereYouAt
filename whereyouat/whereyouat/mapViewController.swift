@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 import CoreLocation
 
+
 class mapViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var guideButton: UIButton!
@@ -30,7 +31,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       
         self.navigationController?.isNavigationBarHidden = true
         
         self.guideButton.layer.cornerRadius = 15
@@ -106,32 +107,63 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
            }
        }
    
-    //Class for creating a friend
-      class friendMarker: NSObject, MKAnnotation {
-         
-          let title: String?
-          let status: String?
-          var coordinate: CLLocationCoordinate2D
-          var markerTintColor: UIColor
-          
-          init(name: String, status: String, coordinate: CLLocationCoordinate2D) {
-              self.title = name
-              self.status = status
-              self.coordinate = coordinate
-              self.markerTintColor = .green
-         }
-      }
-     
+     //Class for creating a friend
+     class FriendMarker: NSObject, MKAnnotation {
+        
+         let title: String?
+         let status: String?
+         var coordinate: CLLocationCoordinate2D
+        
+         init(name: String, status: String, coordinate: CLLocationCoordinate2D) {
+             self.title = name
+             self.status = status
+             self.coordinate = coordinate
+             
+        }
+        
+        var subtitle: String? {
+          return status
+        }
+     }
+    
       func showFriends(){
           //TODO: pull friends from backend, color code marker
           print("got here")
           let location = CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)
-          let friend1 = friendMarker(name: "Rong Ge", status: "Free", coordinate: location)
-          
+          let friend1 = FriendMarker(name: "Rong Ge", status: "Free", coordinate: location)
+            
           myMap.addAnnotations([friend1])
           
           print("added annotation")
       }
+    /*
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+      
+      guard let annotation = annotation as? FriendMarker else {
+        return nil
+      }
+      
+      let identifier = "friend1"
+      var view: MKMarkerAnnotationView
+      
+      if let dequeuedView = mapView.dequeueReusableAnnotationView(
+        withIdentifier: identifier) as? MKMarkerAnnotationView {
+        dequeuedView.annotation = annotation
+        view = dequeuedView
+      } else {
+        
+        view = MKMarkerAnnotationView(
+          annotation: annotation,
+          reuseIdentifier: identifier)
+        view.canShowCallout = true
+        view.calloutOffset = CGPoint(x: -5, y: 5)
+        view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
+      }
+      return view
+    }
+    */
+
+    
 
     @IBAction func setFreeStatus(_ sender: Any) {
         myStatus = "free"
@@ -191,3 +223,4 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     */
 
 }
+
