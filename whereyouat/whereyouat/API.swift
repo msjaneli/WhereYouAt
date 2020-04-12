@@ -99,14 +99,13 @@ class API {
         docRef.getDocument { (document, error) in
             if let document = document, document.exists {
                 status = document.get("status") as? String ?? ""
-//                print(status)
             } else {
                 print("Document does not exist")
             }
         }
         return status
     }
-    
+        
     func getUserFriends(username: String){
         let docRef = db.collection("users").document(username)
         docRef.getDocument { (document, error) in
@@ -137,7 +136,7 @@ class API {
         ])
     }
     
-    func updateLocation(username: String, latValue: CLLocationCoordinate2D, longValue:CLLocationCoordinate2D){
+    func updateLocation(username: String, latValue: Double, longValue: Double){
         let docRef1 = db.collection("users").document(username)
         docRef1.updateData(["lat": latValue])
         docRef1.updateData(["long": longValue])

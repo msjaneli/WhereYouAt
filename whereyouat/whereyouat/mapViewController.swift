@@ -65,13 +65,17 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         print("latitude = \(userLocation.coordinate.latitude)")
         print("longitude = \(userLocation.coordinate.longitude)")
         
-        let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
-        
+
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
-        
+        let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
+
         let region = MKCoordinateRegion(center: myLocation, span: span)
         myMap.setRegion(region, animated: true)
 
+        let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
+               if((myUsername) != nil){
+                api.updateLocation(username: myUsername!, latValue: userLocation.coordinate.latitude, longValue: userLocation.coordinate.longitude)
+        }
     }
     
     
@@ -133,9 +137,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     func getStatus(){
         let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
         if((myUsername) != nil){
-            myStatus = api.getStatus(username: myUsername!)
-            print("h")
-            print(self.myStatus)
+            self.myStatus = api.getStatus(username: myUsername!)
         }
     }
     
