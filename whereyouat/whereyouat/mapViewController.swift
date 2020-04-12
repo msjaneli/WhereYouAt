@@ -52,7 +52,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         
           getStatus()
           updateMyMarker()
-        
+          showFriends()
         
     }
     
@@ -106,6 +106,32 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
            }
        }
    
+    //Class for creating a friend
+      class friendMarker: NSObject, MKAnnotation {
+         
+          let title: String?
+          let status: String?
+          var coordinate: CLLocationCoordinate2D
+          var markerTintColor: UIColor
+          
+          init(name: String, status: String, coordinate: CLLocationCoordinate2D) {
+              self.title = name
+              self.status = status
+              self.coordinate = coordinate
+              self.markerTintColor = .green
+         }
+      }
+     
+      func showFriends(){
+          //TODO: pull friends from backend, color code marker
+          print("got here")
+          let location = CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)
+          let friend1 = friendMarker(name: "Rong Ge", status: "Free", coordinate: location)
+          
+          myMap.addAnnotations([friend1])
+          
+          print("added annotation")
+      }
 
     @IBAction func setFreeStatus(_ sender: Any) {
         myStatus = "free"
