@@ -10,6 +10,24 @@ import UIKit
 import MapKit
 import CoreLocation
 
+//Class for creating a friend
+class FriendMarker: NSObject, MKAnnotation {
+   
+    let title: String?
+    let status: String?
+    var coordinate: CLLocationCoordinate2D
+   
+    init(name: String, status: String, coordinate: CLLocationCoordinate2D) {
+        self.title = name
+        self.status = status
+        self.coordinate = coordinate
+        
+   }
+   
+   var subtitle: String? {
+     return status
+   }
+}
 
 class mapViewController: UIViewController, CLLocationManagerDelegate {
     
@@ -31,7 +49,9 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         
     override func viewDidLoad() {
         super.viewDidLoad()
-       
+        
+        myMap.delegate = self
+        
         self.navigationController?.isNavigationBarHidden = true
         
         self.guideButton.layer.cornerRadius = 15
@@ -51,10 +71,17 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
             myMap.showsBuildings = true
         }
         
-          getStatus()
-          updateMyMarker()
-          showFriends()
+        //Adding annotation to myMap
+        let friend1 = FriendMarker(
+            name: "Rong Ge",
+            status: "Free",
+            coordinate: (CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)))
+        myMap.addAnnotation(friend1)
+        print("added annotation")
         
+        getStatus()
+        updateMyMarker()
+          
     }
     
    // MARK: - CoreLocation Delegate Methods
@@ -63,8 +90,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
     // Get most recent CLLocation from array
     // let userLocation:CLLocation = locations[0] as CLLocation
     if let userLocation = locations.first {
-        print("latitude = \(userLocation.coordinate.latitude)")
-        print("longitude = \(userLocation.coordinate.longitude)")
+        //print("latitude = \(userLocation.coordinate.latitude)")
+        //print("longitude = \(userLocation.coordinate.longitude)")
         
 
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
@@ -107,64 +134,6 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
            }
        }
    
-     //Class for creating a friend
-     class FriendMarker: NSObject, MKAnnotation {
-        
-         let title: String?
-         let status: String?
-         var coordinate: CLLocationCoordinate2D
-        
-         init(name: String, status: String, coordinate: CLLocationCoordinate2D) {
-             self.title = name
-             self.status = status
-             self.coordinate = coordinate
-             
-        }
-        
-        var subtitle: String? {
-          return status
-        }
-     }
-    
-      func showFriends(){
-          //TODO: pull friends from backend, color code marker
-          print("got here")
-          let location = CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)
-          let friend1 = FriendMarker(name: "Rong Ge", status: "Free", coordinate: location)
-            
-          myMap.addAnnotations([friend1])
-          
-          print("added annotation")
-      }
-    /*
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-      
-      guard let annotation = annotation as? FriendMarker else {
-        return nil
-      }
-      
-      let identifier = "friend1"
-      var view: MKMarkerAnnotationView
-      
-      if let dequeuedView = mapView.dequeueReusableAnnotationView(
-        withIdentifier: identifier) as? MKMarkerAnnotationView {
-        dequeuedView.annotation = annotation
-        view = dequeuedView
-      } else {
-        
-        view = MKMarkerAnnotationView(
-          annotation: annotation,
-          reuseIdentifier: identifier)
-        view.canShowCallout = true
-        view.calloutOffset = CGPoint(x: -5, y: 5)
-        view.rightCalloutAccessoryView = UIButton(type: .detailDisclosure)
-      }
-      return view
-    }
-    */
-
-    
-
     @IBAction func setFreeStatus(_ sender: Any) {
         myStatus = "free"
         setStatus(status: myStatus)
@@ -224,3 +193,25 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
 
 }
 
+//THIS ISN'T WORKING
+//customizes annotation view. supposed to show a green marker (instead of red) and a callout bubble when marker is clicked
+extension mapViewController: MKMapViewDelegate {
+    func myMap(_ myMap: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    
+        print("GOT HERE") //never prints
+    
+        guard let annotation = annotation as? FriendMarker else {
+            return nil
+        }
+  
+        let identifier = "friend1"
+        var view: MKMarkerAnnotationView
+  
+        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+        view.markerTintColor = .green
+        view.canShowCallout = true
+        view.calloutOffset = CGPoint(x: -5, y: 5)
+       
+        return view
+    }
+}
