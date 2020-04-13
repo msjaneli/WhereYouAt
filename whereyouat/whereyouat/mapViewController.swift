@@ -50,6 +50,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     let locationManager = CLLocationManager()
     
     var myStatus = String()
+    
+    var lastLocation: CLLocation?
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +90,14 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
           
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        if self.lastLocation != nil {
+              let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            let myLocation = CLLocationCoordinate2D(latitude: self.lastLocation!.coordinate.latitude, longitude: self.lastLocation!.coordinate.longitude)
+                let region = MKCoordinateRegion(center: myLocation, span: span)
+                myMap.setRegion(region, animated: true)
+        }
+    }
    // MARK: - CoreLocation Delegate Methods
    
    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
@@ -101,14 +111,13 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
 
-//        let region = MKCoordinateRegion(center: myLocation, span: span)
-//        myMap.setRegion(region, animated: true)
-
         let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
                if((myUsername) != nil){
                 api.updateLocation(username: myUsername!, latValue: userLocation.coordinate.latitude, longValue: userLocation.coordinate.longitude)
         }
     }
+    
+    self.lastLocation = locations.last
     
     
     // Call stopUpdatingLocation() to stop listening for location updates,
