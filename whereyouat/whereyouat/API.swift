@@ -93,19 +93,6 @@ class API {
         }
     }
     
-    func getStatus(username: String) -> String {
-        var status = ""
-        let docRef = db.collection("users").document(username)
-        docRef.getDocument { (document, error) in
-            if let document = document, document.exists {
-                status = document.get("status") as? String ?? ""
-            } else {
-                print("Document does not exist")
-            }
-        }
-        return status
-    }
-        
     func getUserFriends(username: String){
         let docRef = db.collection("users").document(username)
         docRef.getDocument { (document, error) in

@@ -10,6 +10,10 @@ import UIKit
 import MapKit
 import CoreLocation
 
+import FirebaseCore
+import FirebaseFirestore
+import FirebaseFirestoreSwift
+
 //Class for creating a friend
 class FriendMarker: NSObject, MKAnnotation {
    
@@ -164,7 +168,15 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     func getStatus(){
         let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
         if((myUsername) != nil){
-            self.myStatus = api.getStatus(username: myUsername!)
+            let docRef = db.collection("users").document(myUsername!)
+                  docRef.getDocument { (document, error) in
+                      if let document = document, document.exists {
+                        self.myStatus = document.get("status") as? String ?? ""
+                        self.updateMyMarker()
+                      } else {
+                          print("Document does not exist")
+                      }
+                  }
         }
     }
     
@@ -187,7 +199,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             return nil
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "friendsAnnotation")
-        let annotationImage = UIImage(systemName: "smallcircle.circle.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+        let annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
         annotationView.image = annotationImage
         annotationView.canShowCallout = true
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
