@@ -14,6 +14,7 @@
 		10411085243E5F7C0033386E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10411084243E5F7C0033386E /* Reachability.swift */; };
 		10411087243E6A880033386E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10411086243E6A880033386E /* GoogleService-Info.plist */; };
 		10A82D7C244253E2008B0863 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A82D7B244253E2008B0863 /* AddFriendsViewController.swift */; };
+		BE31CE502443F88900FA5F9A /* UIImage+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31CE4F2443F88900FA5F9A /* UIImage+CustomColor.swift */; };
 		BE4CA9042429556B0017999F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CA9032429556B0017999F /* AppDelegate.swift */; };
 		BE4CA9062429556B0017999F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CA9052429556B0017999F /* SceneDelegate.swift */; };
 		BE4CA9082429556B0017999F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CA9072429556B0017999F /* ViewController.swift */; };
@@ -35,6 +36,7 @@
 		2D094272EC78E2E15249DF30 /* Pods-whereyouat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereyouat.debug.xcconfig"; path = "Target Support Files/Pods-whereyouat/Pods-whereyouat.debug.xcconfig"; sourceTree = "<group>"; };
 		884A6B75639A12A179BD6F83 /* Pods-whereyouat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereyouat.release.xcconfig"; path = "Target Support Files/Pods-whereyouat/Pods-whereyouat.release.xcconfig"; sourceTree = "<group>"; };
 		A4590CB854C2217474F0D3F9 /* Pods_whereyouat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_whereyouat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE31CE4F2443F88900FA5F9A /* UIImage+CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+CustomColor.swift"; sourceTree = "<group>"; };
 		BE4CA9002429556A0017999F /* whereyouat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = whereyouat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE4CA9032429556B0017999F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BE4CA9052429556B0017999F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				BE4CA9072429556B0017999F /* ViewController.swift */,
 				BE4CA9092429556B0017999F /* Main.storyboard */,
 				E9E9214F2431ACFF00D1E6AC /* mapViewController.swift */,
+				BE31CE4F2443F88900FA5F9A /* UIImage+CustomColor.swift */,
 				BE4CA90C2429556E0017999F /* Assets.xcassets */,
 				BE4CA90E2429556E0017999F /* LaunchScreen.storyboard */,
 				BE4CA9112429556E0017999F /* Info.plist */,
@@ -231,6 +234,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE31CE502443F88900FA5F9A /* UIImage+CustomColor.swift in Sources */,
 				10411083243E543C0033386E /* CreatePartTwoViewController.swift in Sources */,
 				1041107E243D5EB70033386E /* statusViewController.swift in Sources */,
 				BE4CA9082429556B0017999F /* ViewController.swift in Sources */,

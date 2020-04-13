@@ -29,7 +29,7 @@ class FriendMarker: NSObject, MKAnnotation {
    }
 }
 
-class mapViewController: UIViewController, CLLocationManagerDelegate {
+class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     @IBOutlet weak var guideButton: UIButton!
     
@@ -97,8 +97,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
 
-        let region = MKCoordinateRegion(center: myLocation, span: span)
-        myMap.setRegion(region, animated: true)
+//        let region = MKCoordinateRegion(center: myLocation, span: span)
+//        myMap.setRegion(region, animated: true)
 
         let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
                if((myUsername) != nil){
@@ -181,6 +181,17 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
     
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if annotation is MKUserLocation{
+            return nil
+        }
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "friendsAnnotation")
+        annotationView.image = UIImage(systemName: "smallcircle.circle.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+        annotationView.canShowCallout = true
+        annotationView.calloutOffset = CGPoint(x: -5, y: 5)
+        return annotationView
+    }
     /*
     // MARK: - Navigation
 
@@ -193,25 +204,26 @@ class mapViewController: UIViewController, CLLocationManagerDelegate {
 
 }
 
+
 //THIS ISN'T WORKING
 //customizes annotation view. supposed to show a green marker (instead of red) and a callout bubble when marker is clicked
-extension mapViewController: MKMapViewDelegate {
-    func myMap(_ myMap: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-    
-        print("GOT HERE") //never prints
-    
-        guard let annotation = annotation as? FriendMarker else {
-            return nil
-        }
-  
-        let identifier = "friend1"
-        var view: MKMarkerAnnotationView
-  
-        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-        view.markerTintColor = .green
-        view.canShowCallout = true
-        view.calloutOffset = CGPoint(x: -5, y: 5)
-       
-        return view
-    }
-}
+//extension mapViewController: MKMapViewDelegate {
+//    func myMap(_ myMap: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+//
+//        print("GOT HERE") //never prints
+//
+//        guard let annotation = annotation as? FriendMarker else {
+//            return nil
+//        }
+//
+//        let identifier = "friend1"
+//        var view: MKMarkerAnnotationView
+//
+//        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+//        view.markerTintColor = .green
+//        view.canShowCallout = true
+//        view.calloutOffset = CGPoint(x: -5, y: 5)
+//
+//        return view
+//    }
+//}

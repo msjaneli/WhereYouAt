@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -132,7 +132,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0ht-0G-e5M">
                                 <rect key="frame" x="54" y="687" width="56" height="56"/>
-                                <color key="backgroundColor" red="0.59166526612296566" green="0.92750634517766495" blue="0.57593744495596422" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.59215686274509804" green="0.92941176470588238" blue="0.57647058823529407" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="0ht-0G-e5M" secondAttribute="height" multiplier="1:1" id="51n-pA-KzK"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="fa9-7Y-47f"/>
@@ -972,16 +972,16 @@
             <point key="canvasLocation" x="138" y="991"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="arrow.right.square.fill" catalog="system" width="64" height="56"/>
-        <image name="mappin" catalog="system" width="52" height="64"/>
-        <image name="person.3.fill" catalog="system" width="71" height="34"/>
-        <image name="person.badge.plus" catalog="system" width="64" height="58"/>
-        <image name="person.fill" catalog="system" width="64" height="60"/>
-        <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
-    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4wI-WJ-qnb"/>
         <segue reference="wOE-rv-9Pa"/>
     </inferredMetricsTieBreakers>
+    <resources>
+        <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
+        <image name="mappin" catalog="system" width="105" height="128"/>
+        <image name="person.3.fill" catalog="system" width="128" height="61"/>
+        <image name="person.badge.plus" catalog="system" width="128" height="116"/>
+        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
+    </resources>
 </document>
