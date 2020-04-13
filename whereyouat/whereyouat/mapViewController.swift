@@ -74,7 +74,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         //Adding annotation to myMap
         let friend1 = FriendMarker(
             name: "Rong Ge",
-            status: "Free",
+            status: "free",
             coordinate: (CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)))
         myMap.addAnnotation(friend1)
         print("added annotation")
@@ -187,7 +187,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             return nil
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "friendsAnnotation")
-        annotationView.image = UIImage(systemName: "smallcircle.circle.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+        let annotationImage = UIImage(systemName: "smallcircle.circle.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+        annotationView.image = annotationImage
         annotationView.canShowCallout = true
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
         return annotationView
