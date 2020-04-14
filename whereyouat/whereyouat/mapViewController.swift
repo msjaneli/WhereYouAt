@@ -59,7 +59,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var friendsStatus: [String] = []
     var friendsLat: [Double] = []
     var friendsLong: [Double] = []
-        
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -83,15 +83,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             myMap.showsUserLocation = true
             myMap.showsBuildings = true
         }
-        
-        //Adding annotation to myMap
-        let friend1 = FriendMarker(
-            name: "Rong Ge",
-            status: "free",
-            coordinate: (CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)))
-        myMap.addAnnotation(friend1)
-        print("added annotation")
-        
+                
         getStatus()
         getFriendData()
           
@@ -265,9 +257,21 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         if annotation is MKUserLocation{
             return nil
         }
-        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "friendsAnnotation") as FriendMarker
+        let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "friendsAnnotation")
         
-        let annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+        var annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor.blue)
+        let friendsMarker = annotation as! FriendMarker
+        switch friendsMarker.status {
+            case "free":
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+            case "studying":
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 255.0/255.0, green: 249.0/255.0, blue: 157.0/255.0, alpha: 1.0))
+            case "busy":
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0))
+            default:
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor.blue)
+        }
+       
         annotationView.image = annotationImage
         annotationView.canShowCallout = true
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
