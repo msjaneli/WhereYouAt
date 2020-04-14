@@ -38,7 +38,7 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
     
     @objc func buttonClick() {
         let df = DateFormatter()
-        df.dateFormat = "yyyy-MM-dd hh:mm:ss"
+        df.dateFormat = "yyyy-MM-dd"
         let dobString = df.string(from: dob)
         api.userSignUp(username: username.text!, password: password.text!, firstName: firstName, lastName: lastName, email: email.text!, status: "", dob: dobString)
         let userDefault = UserDefaults.standard

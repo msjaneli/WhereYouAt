@@ -14,6 +14,7 @@
 		10411085243E5F7C0033386E /* Reachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10411084243E5F7C0033386E /* Reachability.swift */; };
 		10411087243E6A880033386E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10411086243E6A880033386E /* GoogleService-Info.plist */; };
 		10696A1924463B060040CBCA /* ConfirmAddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10696A1824463B060040CBCA /* ConfirmAddFriendsViewController.swift */; };
+		10696A1B24464E770040CBCA /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10696A1A24464E770040CBCA /* AccountViewController.swift */; };
 		10A82D7C244253E2008B0863 /* AddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10A82D7B244253E2008B0863 /* AddFriendsViewController.swift */; };
 		BE31CE502443F88900FA5F9A /* UIImage+CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE31CE4F2443F88900FA5F9A /* UIImage+CustomColor.swift */; };
 		BE4CA9042429556B0017999F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE4CA9032429556B0017999F /* AppDelegate.swift */; };
@@ -34,6 +35,7 @@
 		10411084243E5F7C0033386E /* Reachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reachability.swift; sourceTree = "<group>"; };
 		10411086243E6A880033386E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10696A1824463B060040CBCA /* ConfirmAddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConfirmAddFriendsViewController.swift; sourceTree = "<group>"; };
+		10696A1A24464E770040CBCA /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		10A82D7B244253E2008B0863 /* AddFriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddFriendsViewController.swift; sourceTree = "<group>"; };
 		2D094272EC78E2E15249DF30 /* Pods-whereyouat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereyouat.debug.xcconfig"; path = "Target Support Files/Pods-whereyouat/Pods-whereyouat.debug.xcconfig"; sourceTree = "<group>"; };
 		884A6B75639A12A179BD6F83 /* Pods-whereyouat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-whereyouat.release.xcconfig"; path = "Target Support Files/Pods-whereyouat/Pods-whereyouat.release.xcconfig"; sourceTree = "<group>"; };
@@ -117,6 +119,7 @@
 				10411082243E543C0033386E /* CreatePartTwoViewController.swift */,
 				10411084243E5F7C0033386E /* Reachability.swift */,
 				10696A1824463B060040CBCA /* ConfirmAddFriendsViewController.swift */,
+				10696A1A24464E770040CBCA /* AccountViewController.swift */,
 			);
 			path = whereyouat;
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 			files = (
 				BE31CE502443F88900FA5F9A /* UIImage+CustomColor.swift in Sources */,
 				10411083243E543C0033386E /* CreatePartTwoViewController.swift in Sources */,
+				10696A1B24464E770040CBCA /* AccountViewController.swift in Sources */,
 				1041107E243D5EB70033386E /* statusViewController.swift in Sources */,
 				BE4CA9082429556B0017999F /* ViewController.swift in Sources */,
 				BE4CA9042429556B0017999F /* AppDelegate.swift in Sources */,

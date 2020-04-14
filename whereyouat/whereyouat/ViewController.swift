@@ -19,24 +19,38 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-            
-        if Reachability.isConnectedToNetwork(){
-            print("Connected to the Internet")
-            api.setup()
-            username.delegate = self
-            password.delegate = self
-            loginButton.isUserInteractionEnabled = false
-            loginButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
-         }
-         else{
-             print("No Connnection to Internet")
-             let alert = UIAlertController(title:"Internet offline", message: "Please check your connection and try again.", preferredStyle: .alert)
-             alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-             NSLog("The \"OK\" alert occured.")
-             }))
-             self.present(alert, animated: true, completion: nil)
-         }
+
+        let notificationCenter = NotificationCenter.default
+        notificationCenter.addObserver(self, selector: #selector(appLaunched), name: UIApplication.didFinishLaunchingNotification, object: nil)
         
+        let alreadyStarted = UserDefaults.standard.bool(forKey: "alreadyStarted")
+        print(alreadyStarted)
+        if !alreadyStarted {
+            if Reachability.isConnectedToNetwork(){
+                print("Connected to the Internet")
+                api.setup()
+                UserDefaults.standard.set(true, forKey: "alreadyStarted")
+                username.delegate = self
+                password.delegate = self
+                loginButton.isUserInteractionEnabled = false
+                loginButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
+            }
+            else{
+              print("No Connnection to Internet")
+              let alert = UIAlertController(title:"Internet offline", message: "Please check your connection and try again.", preferredStyle: .alert)
+              alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+              NSLog("The \"OK\" alert occured.")
+              }))
+              self.present(alert, animated: true, completion: nil)
+            }
+        }
+        
+        
+    }
+    
+    @objc func appLaunched() {
+        print("App was launched!")
+        UserDefaults.standard.set(false, forKey: "alreadyStarted")
     }
     
     @objc func buttonClick() {

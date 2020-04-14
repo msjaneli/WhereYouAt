@@ -17,6 +17,18 @@ var db: Firestore!
 
 class API {
     
+    struct user: Decodable {
+        var lat: Double
+        var long: Double
+        var first: String
+        var last: String
+        var email: String
+        var status: String
+        var dob: String
+        var username: String
+        var friends: [String] = [String]()
+     }
+    
     static let sharedInstance = API()
     
     func setup(){
@@ -65,9 +77,27 @@ class API {
         }
     }
     
-//    func userLoginVerify(username: String, password: String) -> Bool{
-//
-//    }
+    func getUser(username: String, completionHandler:@escaping (user) -> ())  {
+        db.collection("users").document(username).getDocument{ (document, error) in
+            var userData = user(lat: 0.0, long: 0.0, first: "", last: "", email: "", status: "", dob: "", username: "")
+            if let document = document, document.exists {
+                let data = document.data()
+                userData.lat = data?["lat"] as! Double
+                userData.long = data?["lat"] as! Double
+                userData.dob = data?["dob"] as! String
+                userData.first = data?["first"] as! String
+                userData.last = data?["last"] as! String
+                userData.email = data?["email"] as! String
+                userData.status = data?["status"] as! String
+                userData.username = data?["username"] as! String
+                print(userData)
+                completionHandler(userData)
+                return
+            } else {
+                print("No data found")
+            }
+        }
+    }
     
     func getUsers() {
         db.collection("users").getDocuments() { (querySnapshot, err) in
