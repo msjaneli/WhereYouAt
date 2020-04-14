@@ -52,7 +52,14 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var myStatus = String()
     
     var lastLocation: CLLocation?
-        
+    
+    var userFriends: [String] = []
+    var friendsFirst: [String] = []
+    var friendsLast: [String] = []
+    var friendsStatus: [String] = []
+    var friendsLat: [Double] = []
+    var friendsLong: [Double] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -76,17 +83,9 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
             myMap.showsUserLocation = true
             myMap.showsBuildings = true
         }
-        
-        //Adding annotation to myMap
-        let friend1 = FriendMarker(
-            name: "Rong Ge",
-            status: "free",
-            coordinate: (CLLocationCoordinate2D(latitude: +37.786930, longitude: -122.406340)))
-        myMap.addAnnotation(friend1)
-        print("added annotation")
-        
+                
         getStatus()
-        updateMyMarker()
+        getFriendData()
           
     }
     
@@ -202,13 +201,77 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
+    func getFriendData(){
+             let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
+             if((myUsername) != nil){
+                let docRef = db.collection("users").document(myUsername!)
+                docRef.addSnapshotListener { documentSnapshot, error in
+                          guard let document = documentSnapshot else {
+                            print("Error fetching document: \(error!)")
+                            return
+                          }
+                    self.userFriends = document.get("friends") as? [String] ?? []
+                    self.getFriendLocationsandStatuses()
+                        }
+         }
+    }
+    
+    func getFriendLocationsandStatuses(){
+        var i = 0
+        for friendUsername in self.userFriends{
+            let docRef = db.collection("users").document(friendUsername)
+               docRef.addSnapshotListener { documentSnapshot, error in
+                         guard let document = documentSnapshot else {
+                           print("Error fetching document: \(error!)")
+                           return
+                         }
+                self.friendsFirst.append(document.get("first") as? String ?? "")
+                 self.friendsLast.append(document.get("last") as? String ?? "")
+                self.friendsStatus.append(document.get("status") as? String ?? "")
+                self.friendsLat.append(document.get("lat") as? Double ?? 0.0)
+                self.friendsLong.append(document.get("long") as? Double ?? 0.0)
+                i+=1
+                if (i==self.userFriends.count){
+                    self.updateFriendMarkers()
+                }
+            }
+        }
+    }
+    
+    func updateFriendMarkers(){
+        if self.userFriends.count > 0 {
+        for i in 0...self.userFriends.count-1 {
+            if(!(friendsLat[i]==0.0 && friendsLong[i]==0.0)){
+            let friend = FriendMarker(
+                name: "\(self.friendsFirst[i]) \(self.friendsLast[i])",
+                status: self.friendsStatus[i],
+                coordinate: (CLLocationCoordinate2D(latitude: self.friendsLat[i], longitude: self.friendsLong[i])))
+                  myMap.addAnnotation(friend)
+            }
+        }
+        }
+    }
+    
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         
         if annotation is MKUserLocation{
             return nil
         }
         let annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "friendsAnnotation")
-        let annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+        
+        var annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor.blue)
+        let friendsMarker = annotation as! FriendMarker
+        switch friendsMarker.status {
+            case "free":
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0))
+            case "studying":
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 255.0/255.0, green: 249.0/255.0, blue: 157.0/255.0, alpha: 1.0))
+            case "busy":
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0))
+            default:
+                annotationImage = UIImage(systemName: "person.fill")!.withRenderingMode(.alwaysTemplate).colorized(color: UIColor.blue)
+        }
+       
         annotationView.image = annotationImage
         annotationView.canShowCallout = true
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
