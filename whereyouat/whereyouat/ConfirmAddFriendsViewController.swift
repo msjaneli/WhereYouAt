@@ -17,6 +17,10 @@ class ConfirmAddFriendsViewController: UIViewController {
         print(myUsername + friendName.text!)
         if !myUsername.isEmpty && !friendName.text!.isEmpty {
             api.addUserFriends(username1: myUsername, username2: friendName.text!)
+            let alert = UIAlertController(title: "", message: "\(friendName.text!) successfully added", preferredStyle: .alert)
+
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(alert, animated: true)
         }
         
     }
