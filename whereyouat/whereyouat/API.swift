@@ -107,7 +107,7 @@ class API {
     
     func addUserFriends(username1: String, username2: String){
         let docRef1 = db.collection("users").document(username1)
-        docRef1.setData([
+        docRef1.updateData([
             "friends":FieldValue.arrayUnion([username2])])
         
         let docRef2 = db.collection("users").document(username2)

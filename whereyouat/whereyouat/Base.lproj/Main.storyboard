@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -257,8 +257,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <action selector="onFirstButtonClicked:" destination="o8b-rX-3ef" eventType="touchUpInside" id="nwr-gQ-FKe"/>
-                                    <action selector="setFriendUsername:" destination="o8b-rX-3ef" eventType="touchUpInside" id="v3f-Mw-K4U"/>
                                     <segue destination="uwf-Di-kfy" kind="show" id="FCQ-MS-tro"/>
                                 </connections>
                             </button>
@@ -305,20 +303,17 @@
                     </view>
                     <navigationItem key="navigationItem" id="jew-Ne-4l6"/>
                     <connections>
-                        <outlet property="addFriendsButton" destination="jKt-J7-9Up" id="RC1-6H-NGK"/>
-                        <outlet property="enteredFriendName" destination="cVz-I1-OFs" id="XyR-Ed-ZwT"/>
-                        <outlet property="friendUsername" destination="cVz-I1-OFs" id="KYX-d6-NEI"/>
-                        <outlet property="setFriendUsername" destination="jKt-J7-9Up" id="bad-rg-zGg"/>
+                        <outlet property="usernameField" destination="cVz-I1-OFs" id="mWj-Or-zd0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fb-4F-1Sv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3993" y="72"/>
         </scene>
-        <!--Add Friends View Controller-->
+        <!--Confirm Add Friends View Controller-->
         <scene sceneID="zHs-zw-vdP">
             <objects>
-                <viewController id="uwf-Di-kfy" customClass="AddFriendsViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="uwf-Di-kfy" customClass="ConfirmAddFriendsViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yiz-UV-Eai">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -350,8 +345,8 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
+                                    <action selector="addFriend:" destination="uwf-Di-kfy" eventType="touchUpInside" id="r9j-Xy-cfK"/>
                                     <action selector="addFriends:" destination="mSc-aD-oZY" eventType="touchUpInside" id="ddp-qn-eEZ"/>
-                                    <action selector="onSecondButtonClicked:" destination="uwf-Di-kfy" eventType="touchUpInside" id="ctz-l6-vtU"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xbY-4z-NDR">
@@ -367,8 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="9Ke-aK-NlU"/>
                     <connections>
-                        <outlet property="addFriendsButton" destination="rW4-JE-Kp4" id="lkv-G9-AIB"/>
-                        <outlet property="friendUsername" destination="xbY-4z-NDR" id="5QI-es-u9H"/>
+                        <outlet property="friendName" destination="xbY-4z-NDR" id="rBB-hS-ncd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eih-9U-FPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -972,16 +966,16 @@
             <point key="canvasLocation" x="138" y="991"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.right.square.fill" catalog="system" width="64" height="56"/>
+        <image name="mappin" catalog="system" width="52" height="64"/>
+        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="person.badge.plus" catalog="system" width="64" height="58"/>
+        <image name="person.fill" catalog="system" width="64" height="60"/>
+        <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
+    </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4wI-WJ-qnb"/>
         <segue reference="wOE-rv-9Pa"/>
     </inferredMetricsTieBreakers>
-    <resources>
-        <image name="arrow.right.square.fill" catalog="system" width="128" height="114"/>
-        <image name="mappin" catalog="system" width="105" height="128"/>
-        <image name="person.3.fill" catalog="system" width="128" height="61"/>
-        <image name="person.badge.plus" catalog="system" width="128" height="116"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
-        <image name="questionmark.circle.fill" catalog="system" width="128" height="121"/>
-    </resources>
 </document>

@@ -40,8 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func buttonClick() {
-         let userDefault = UserDefaults.standard
-         userDefault.set(username.text!, forKey: "username")
+        let userDefault = UserDefaults.standard
+        userDefault.set(username.text!, forKey: "username")
      }
      
      func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
