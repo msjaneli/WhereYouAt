@@ -18,18 +18,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-
-        let notificationCenter = NotificationCenter.default
-        notificationCenter.addObserver(self, selector: #selector(appLaunched), name: UIApplication.didFinishLaunchingNotification, object: nil)
         
-        let alreadyStarted = UserDefaults.standard.bool(forKey: "alreadyStarted")
-        print(alreadyStarted)
-        if !alreadyStarted {
+        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
+        print(launchedBefore)
+        if launchedBefore  {
+            print("Not first launch.")
+        } else {
+            print("First launch, setting UserDefault.")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
             if Reachability.isConnectedToNetwork(){
                 print("Connected to the Internet")
                 api.setup()
-                UserDefaults.standard.set(true, forKey: "alreadyStarted")
                 username.delegate = self
                 password.delegate = self
                 loginButton.isUserInteractionEnabled = false
@@ -44,14 +43,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
               self.present(alert, animated: true, completion: nil)
             }
         }
-        
-        
     }
     
-    @objc func appLaunched() {
-        print("App was launched!")
-        UserDefaults.standard.set(false, forKey: "alreadyStarted")
-    }
+//    @objc func appLaunched() {
+//        print("App was launched!")
+//        UserDefaults.standard.set(false, forKey: "launchedBefore")
+//    }
     
     @objc func buttonClick() {
         let userDefault = UserDefaults.standard
