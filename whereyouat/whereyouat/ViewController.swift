@@ -21,18 +21,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         print(launchedBefore)
-        if launchedBefore  {
+        if false  {
             print("Not first launch.")
         } else {
-            print("First launch, setting UserDefault.")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
             if Reachability.isConnectedToNetwork(){
                 print("Connected to the Internet")
+                UserDefaults.standard.set(true, forKey: "launchedBefore")
                 api.setup()
                 username.delegate = self
                 password.delegate = self
                 loginButton.isUserInteractionEnabled = false
                 loginButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
+                username.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+                password.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+
             }
             else{
               print("No Connnection to Internet")
@@ -45,33 +47,26 @@ class ViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
-//    @objc func appLaunched() {
-//        print("App was launched!")
-//        UserDefaults.standard.set(false, forKey: "launchedBefore")
-//    }
+    @objc func textFieldDidChange(textField: UITextField) {
+        if(!username.text!.isEmpty && !password.text!.isEmpty) {
+           api.loginVerify(username: username.text!, password: password.text!, completionHandler: { (success) -> Void in
+               if success {
+                   print("Login Successful")
+                   self.loginButton.isUserInteractionEnabled = true
+               } else {
+                   print("Login failed (incorrect username/password combination")
+                   self.loginButton.isUserInteractionEnabled = false
+               }
+           })
+
+        } else {
+            loginButton.isUserInteractionEnabled = false
+        }
+    }
     
     @objc func buttonClick() {
         let userDefault = UserDefaults.standard
         userDefault.set(username.text!, forKey: "username")
-     }
-     
-     func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
-         if(!username.text!.isEmpty && !password.text!.isEmpty) {
-            api.loginVerify(username: username.text!, password: password.text!, completionHandler: { (success) -> Void in
-                if success {
-                    print("Login Successful")
-                    self.loginButton.isUserInteractionEnabled = true
-                } else {
-                    print("Login failed (incorrect username/password combination")
-                    self.loginButton.isUserInteractionEnabled = false
-                }
-            })
-
-         } else {
-             loginButton.isUserInteractionEnabled = false
-         }
-         return true
-         
      }
 
 

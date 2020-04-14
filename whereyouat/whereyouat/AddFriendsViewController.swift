@@ -25,9 +25,10 @@ class AddFriendsViewController: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
-        let destVC = segue.destination as! ConfirmAddFriendsViewController
-    
-        destVC.inheritedFriendName = usernameField.text!
+        if segue.identifier == "addToConfirm" {
+            let destVC = segue.destination as! ConfirmAddFriendsViewController
+            destVC.inheritedFriendName = usernameField.text!
+        }
 
     }
     
