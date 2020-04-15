@@ -29,4 +29,4 @@ The reason we chose to design this app is because we saw a found a need for a mo
 
 - Sam Chan: Primarily worked on backend, worked on connecting Login/Signup/Account pages from Firebase to Storyboard, some segues, bug fixing, input sanitation, and helped with initial API setup (to communicate with backend)
 - Jane Li: Set up backend server and basic API calls with Sam, implemented map API calls to pull and post user and friend locations to server, configured map to display locations, designed and implemented indicators for sign up and login status, UI clean up
-- Akshara Anand: Worked on backend and frontend, designed the UI of all the screens in Figma, created storyboards for the guide, connected AddFriends screens from Firebase to Storyboard
+- Akshara Anand: Worked on backend and frontend, designed the UI of all the screens in Figma, created storyboards for the guide, implemented the AddFriends features and connected the AddFriends screens from Firebase to Storyboard
