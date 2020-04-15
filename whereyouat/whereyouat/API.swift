@@ -179,6 +179,17 @@ class API {
             "friends":FieldValue.arrayUnion([username1])])
     }
     
+    func removeUserFriends(username1: String, username2: String) {
+        let docRef1 = db.collection("users").document(username1)
+        docRef1.updateData([
+            "friends":FieldValue.arrayRemove([username2])])
+        
+        let docRef2 = db.collection("users").document(username2)
+        docRef2.updateData([
+            "friends":FieldValue.arrayRemove([username1])])
+        
+    }
+    
     func createEvent(){
         db.collection("allEvents").document("janeli").collection("userEvents").addDocument(data: [
             "title": "Sam's Birthday Party",

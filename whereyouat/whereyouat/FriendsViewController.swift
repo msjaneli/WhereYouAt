@@ -46,6 +46,15 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
 
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        print("Deleted")
+        api.removeUserFriends(username1: myUsername, username2: userFriends[indexPath.row])
+        userFriends.remove(at: indexPath.row)
+        friendsTable.deleteRows(at: [indexPath], with: .fade)
+      }
+    }
+    
 
     /*
     // MARK: - Navigation
