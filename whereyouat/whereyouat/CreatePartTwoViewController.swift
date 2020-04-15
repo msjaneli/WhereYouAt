@@ -50,13 +50,30 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
         userDefault.set(username.text!, forKey: "username")
     }
     
-    //TODO: username & email should be unique
     @objc func textFieldDidChange(textField: UITextField) {
 
         if(!username.text!.isEmpty && !password.text!.isEmpty && !email.text!.isEmpty && !confirmPassword.text!.isEmpty && !confirmEmail.text!.isEmpty && password.text == confirmPassword.text && email.text == confirmEmail.text) {
-            registerButton.isUserInteractionEnabled = true
-
+            
+            // Check for unique username and email
+            api.isUsernameUnique(username: username.text!, completionHandler: { (success) -> Void in
+                    if success {
+                        print("Username is unique")
+                        self.api.isEmailUnique(email: self.email.text!, completionHandler: { (success) -> Void in
+                            if success {
+                                print("Email is unique")
+                                self.registerButton.isUserInteractionEnabled = true
+                            } else {
+                                print("Email is not unique")
+                                self.registerButton.isUserInteractionEnabled = false
+                            }
+                        })
+                    } else {
+                        print("Username is not unique")
+                        self.registerButton.isUserInteractionEnabled = false
+                    }
+                })
         } else {
+            print("Problem with the input")
             registerButton.isUserInteractionEnabled = false
         }        
     }

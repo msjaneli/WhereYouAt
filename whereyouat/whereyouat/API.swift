@@ -77,6 +77,39 @@ class API {
         }
     }
     
+    func isUsernameUnique(username: String, completionHandler:@escaping (Bool) -> ()) {
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+              if let err = err {
+                  print("Error getting documents: \(err)")
+              } else {
+                  for document in querySnapshot!.documents {
+                      if(document.documentID == username) {
+                          completionHandler(false)
+                          return
+                      }
+                  }
+                  completionHandler(true)
+              }
+          }
+    }
+    
+    func isEmailUnique(email: String, completionHandler:@escaping (Bool) -> ()) {
+        db.collection("users").getDocuments() { (querySnapshot, err) in
+              if let err = err {
+                  print("Error getting documents: \(err)")
+              } else {
+                  for document in querySnapshot!.documents {
+                      let documentEmail = (document.data()["email"]) as? String ?? ""
+                      if(documentEmail == email) {
+                          completionHandler(false)
+                          return
+                      }
+                  }
+                  completionHandler(true)
+              }
+          }
+    }
+    
     func getUser(username: String, completionHandler:@escaping (user) -> ())  {
         db.collection("users").document(username).getDocument{ (document, error) in
             var userData = user(lat: 0.0, long: 0.0, first: "", last: "", email: "", status: "", dob: "", username: "")
