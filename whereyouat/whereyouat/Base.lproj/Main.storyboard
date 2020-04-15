@@ -1116,7 +1116,6 @@
         <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="YCw-I4-dDL"/>
         <segue reference="4wI-WJ-qnb"/>
         <segue reference="3oT-I4-cqj"/>
         <segue reference="QN9-w6-NH3"/>

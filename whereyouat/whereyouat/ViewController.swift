@@ -21,7 +21,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         if Reachability.isConnectedToNetwork(){
             print("Connected to the Internet")
-            UserDefaults.standard.set(true, forKey: "launchedBefore")
             if (db == nil) {
                 api.setup()
             }
@@ -62,8 +61,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func buttonClick() {
-//        let userDefault = UserDefaults.standard
-//        userDefault.set(username.text!, forKey: "username")
+        let userDefault = UserDefaults.standard
+        userDefault.set(username.text!, forKey: "username")
      }
 
 
