@@ -60,7 +60,8 @@ class ViewController: UIViewController, UITextFieldDelegate{
                    print("Login failed (incorrect username/password combination")
                     self.authenticatedLabel.text = "Incorrect username/password."
                     self.authenticatedLabel.textColor =  UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
-                   self.loginButton.isUserInteractionEnabled = false
+                    self.loginButton.isUserInteractionEnabled = false
+                    self.loginButton.isHidden = true
                }
            })
 
