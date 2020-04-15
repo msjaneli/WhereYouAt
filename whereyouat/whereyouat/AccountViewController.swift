@@ -30,7 +30,6 @@ class AccountViewController: UIViewController {
             
                 let formatter = DateFormatter()
                 formatter.dateStyle = .long
-                formatter.timeStyle = .short
                  
                 let dateString = formatter.string(from: date)
             
