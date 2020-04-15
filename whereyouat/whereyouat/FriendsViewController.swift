@@ -38,7 +38,10 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
+        
         cell.textLabel?.text = self.userFriends[indexPath.row]
+        cell.textLabel?.font = UIFont(name:"Arial Rounded MT Bold", size:17)
+        cell.textLabel?.textColor = UIColor.orange
       return cell
 
     }
