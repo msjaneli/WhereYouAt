@@ -9,47 +9,31 @@
 import UIKit
 
 class FriendsViewController: UIViewController, UITableViewDelegate {
-
+    
     var myUsername = ""
     var api = API.sharedInstance
-    var friendHandler: [() -> (user)] = []
-    var userFriends = [String][]
+   // var friendHandler: [() -> (user)] = []
+    var userFriends: [String] = [String]()
+   
     override func viewDidLoad() {
         super.viewDidLoad()
-
         myUsername = UserDefaults.standard.string(forKey: "username") ?? ""
-        myFriends = [String][]
-        api.getUserFriends(username: myUsername)
         
-        
-        
-        for n in 0... userFriends.count{
-            api.getUser(username: myUsername, completionHandler: friendHandler)
-            friendHandler.friends
-        }
-        
-
+        api.getUser(username: myUsername, completionHandler: { (user) -> Void in
+            self.userFriends = user.friends
+            })
     }
     func numberOfSections(in tableView: UITableView) -> Int {
     return 1
     }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return *****.count
+        return userFriends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
-        cell.textLabel?.text = friendnames[indexPath.row]
-        
-        let friends = self.modelObjectsArray[indexPath.row] as! Person
-        cell.textLabel?.text = friends.first
-
-        
-        
-        
-        
-        
-        
+        cell.textLabel?.text = self.userFriends[indexPath.row]
       return cell
 
     }

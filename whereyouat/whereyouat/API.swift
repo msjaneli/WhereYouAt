@@ -112,7 +112,7 @@ class API {
     
     func getUser(username: String, completionHandler:@escaping (user) -> ())  {
         db.collection("users").document(username).getDocument{ (document, error) in
-            var userData = user(lat: 0.0, long: 0.0, first: "", last: "", email: "", status: "", dob: "", username: "")
+            var userData = user(lat: 0.0, long: 0.0, first: "", last: "", email: "", status: "", dob: "", username: "", friends: [])
             if let document = document, document.exists {
                 let data = document.data()
                 userData.lat = data?["lat"] as? Double ?? 0.0
@@ -123,6 +123,7 @@ class API {
                 userData.email = data?["email"] as? String ?? "No email data found."
                 userData.status = data?["status"] as? String ?? ""
                 userData.username = data?["username"] as? String ?? ""
+                userData.friends = data?["friends"] as? [String] ?? []
                 print(userData)
                 completionHandler(userData)
                 return
