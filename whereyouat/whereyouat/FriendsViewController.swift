@@ -21,6 +21,8 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
         super.viewDidLoad()
         myUsername = UserDefaults.standard.string(forKey: "username") ?? ""
         
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList), name: NSNotification.Name(rawValue: "load"), object: nil)
+
         api.getUser(username: myUsername, completionHandler: { (user) -> Void in
             self.userFriends = user.friends
             DispatchQueue.main.async {
@@ -28,6 +30,16 @@ class FriendsViewController: UIViewController, UITableViewDataSource, UITableVie
             }
         })
     }
+    
+    @objc func loadList(notification: NSNotification){
+        api.getUser(username: myUsername, completionHandler: { (user) -> Void in
+            self.userFriends = user.friends
+            DispatchQueue.main.async {
+                self.friendsTable.reloadData()
+            }
+        })
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
