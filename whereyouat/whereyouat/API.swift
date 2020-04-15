@@ -82,14 +82,14 @@ class API {
             var userData = user(lat: 0.0, long: 0.0, first: "", last: "", email: "", status: "", dob: "", username: "")
             if let document = document, document.exists {
                 let data = document.data()
-                userData.lat = data?["lat"] as! Double
-                userData.long = data?["lat"] as! Double
-                userData.dob = data?["dob"] as! String
-                userData.first = data?["first"] as! String
-                userData.last = data?["last"] as! String
-                userData.email = data?["email"] as! String
-                userData.status = data?["status"] as! String
-                userData.username = data?["username"] as! String
+                userData.lat = data?["lat"] as? Double ?? 0.0
+                userData.long = data?["lat"] as? Double ?? 0.0
+                userData.dob = data?["dob"] as? String ?? "No birthdate data found."
+                userData.first = data?["first"] as? String ?? "No first name data found."
+                userData.last = data?["last"] as? String ?? "No last name data found."
+                userData.email = data?["email"] as? String ?? "No email data found."
+                userData.status = data?["status"] as? String ?? ""
+                userData.username = data?["username"] as? String ?? ""
                 print(userData)
                 completionHandler(userData)
                 return

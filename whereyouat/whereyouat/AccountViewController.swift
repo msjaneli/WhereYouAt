@@ -25,15 +25,17 @@ class AccountViewController: UIViewController {
             
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "yyyy-MM-dd"
-            let date = dateFormatter.date(from:user.dob)!
+            if (user.dob != "" && user.dob != "No birthdate data found."){
+                let date = dateFormatter.date(from:user.dob)!
             
-            let formatter = DateFormatter()
-            formatter.dateStyle = .long
-            formatter.timeStyle = .short
-             
-            let dateString = formatter.string(from: date)
+                let formatter = DateFormatter()
+                formatter.dateStyle = .long
+                formatter.timeStyle = .short
+                 
+                let dateString = formatter.string(from: date)
             
-            self.birthdate.text = dateString
+                self.birthdate.text = dateString
+            }
         })
 
         // Do any additional setup after loading the view.
