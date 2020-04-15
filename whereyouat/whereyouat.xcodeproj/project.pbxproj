@@ -24,6 +24,7 @@
 		BE4CA90D2429556E0017999F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE4CA90C2429556E0017999F /* Assets.xcassets */; };
 		BE4CA9102429556E0017999F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BE4CA90E2429556E0017999F /* LaunchScreen.storyboard */; };
 		C32FE6DABCEC47314AEE3603 /* Pods_whereyouat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4590CB854C2217474F0D3F9 /* Pods_whereyouat.framework */; };
+		CF0026042446E5BC00D9B9DA /* FriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF0026032446E5BC00D9B9DA /* FriendsViewController.swift */; };
 		E9E921502431ACFF00D1E6AC /* mapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E9214F2431ACFF00D1E6AC /* mapViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -49,6 +50,7 @@
 		BE4CA90C2429556E0017999F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BE4CA90F2429556E0017999F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BE4CA9112429556E0017999F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF0026032446E5BC00D9B9DA /* FriendsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsViewController.swift; sourceTree = "<group>"; };
 		E9E9214F2431ACFF00D1E6AC /* mapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = mapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -109,6 +111,7 @@
 				BE4CA9052429556B0017999F /* SceneDelegate.swift */,
 				BE4CA9072429556B0017999F /* ViewController.swift */,
 				BE4CA9092429556B0017999F /* Main.storyboard */,
+				CF0026032446E5BC00D9B9DA /* FriendsViewController.swift */,
 				E9E9214F2431ACFF00D1E6AC /* mapViewController.swift */,
 				BE31CE4F2443F88900FA5F9A /* UIImage+CustomColor.swift */,
 				BE4CA90C2429556E0017999F /* Assets.xcassets */,
@@ -244,6 +247,7 @@
 				10411083243E543C0033386E /* CreatePartTwoViewController.swift in Sources */,
 				10696A1B24464E770040CBCA /* AccountViewController.swift in Sources */,
 				1041107E243D5EB70033386E /* statusViewController.swift in Sources */,
+				CF0026042446E5BC00D9B9DA /* FriendsViewController.swift in Sources */,
 				BE4CA9082429556B0017999F /* ViewController.swift in Sources */,
 				BE4CA9042429556B0017999F /* AppDelegate.swift in Sources */,
 				10696A1924463B060040CBCA /* ConfirmAddFriendsViewController.swift in Sources */,
