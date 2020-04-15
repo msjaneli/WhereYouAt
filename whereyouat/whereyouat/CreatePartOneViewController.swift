@@ -21,10 +21,14 @@ class CreatePartOneViewController: UIViewController {
     @IBOutlet weak var lastName: UITextField!
     @IBOutlet weak var dob: UIDatePicker!
     @IBOutlet weak var advanceButton: UIButton!
+    @IBOutlet weak var birthdateErrorLabel: UILabel!
+    @IBOutlet weak var advanceLabel: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        advanceButton.isHidden = true
+        advanceLabel.isHidden = true
         advanceButton.isUserInteractionEnabled = false
         dob.addTarget(self, action: #selector(datePickerChanged), for: .valueChanged)
     }
@@ -33,9 +37,15 @@ class CreatePartOneViewController: UIViewController {
         print(Date().years(from: dob.date))
         if(Date().years(from: dob.date) >= 13) {
             print("Over 13, may continue registering")
+            birthdateErrorLabel.text = ""
+            advanceButton.isHidden = false
+            advanceLabel.isHidden = false
             advanceButton.isUserInteractionEnabled = true
         } else {
-            print("Under 13, may not continue registering")
+            birthdateErrorLabel.text = "You must be 13 or older to continue."
+            birthdateErrorLabel.textColor = UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
+            advanceButton.isHidden = true
+            advanceLabel.isHidden = true
             advanceButton.isUserInteractionEnabled = false
         }
     }
