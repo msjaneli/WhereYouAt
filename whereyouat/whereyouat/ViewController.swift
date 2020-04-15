@@ -16,8 +16,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var authenticatedLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.loginButton.isHidden = true
         
         if Reachability.isConnectedToNetwork(){
             print("Connected to the Internet")
@@ -48,9 +52,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
            api.loginVerify(username: username.text!, password: password.text!, completionHandler: { (success) -> Void in
                if success {
                    print("Login Successful")
+                self.authenticatedLabel.text = "User authenticated."
+                self.authenticatedLabel.textColor = UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0)
+                   self.loginButton.isHidden = false
                    self.loginButton.isUserInteractionEnabled = true
                } else {
                    print("Login failed (incorrect username/password combination")
+                    self.authenticatedLabel.text = "Incorrect username/password."
+                    self.authenticatedLabel.textColor =  UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
                    self.loginButton.isUserInteractionEnabled = false
                }
            })
