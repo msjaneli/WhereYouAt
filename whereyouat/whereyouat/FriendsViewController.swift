@@ -12,13 +12,21 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
 
     var myUsername = ""
     var api = API.sharedInstance
-    var friendHandler: [(user) -> ()] = []
+    var friendHandler: [() -> (user)] = []
+    var userFriends = [String][]
     override func viewDidLoad() {
         super.viewDidLoad()
 
         myUsername = UserDefaults.standard.string(forKey: "username") ?? ""
         myFriends = [String][]
-        api.getUser(username: myUsername, completionHandler: friendHandler)
+        api.getUserFriends(username: myUsername)
+        
+        
+        
+        for n in 0... userFriends.count{
+            api.getUser(username: myUsername, completionHandler: friendHandler)
+            friendHandler.friends
+        }
         
 
     }
@@ -32,8 +40,16 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
       let cell = tableView.dequeueReusableCell(withIdentifier: "myCell", for: indexPath)
         cell.textLabel?.text = friendnames[indexPath.row]
+        
+        let friends = self.modelObjectsArray[indexPath.row] as! Person
+        cell.textLabel?.text = friends.first
 
-
+        
+        
+        
+        
+        
+        
       return cell
 
     }
