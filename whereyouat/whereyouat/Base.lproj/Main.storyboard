@@ -711,6 +711,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="tO2-0Y-vbr"/>
                     <connections>
+                        <outlet property="advanceButton" destination="P7q-XZ-6go" id="1rf-af-UDI"/>
                         <outlet property="dob" destination="wgd-ip-Qff" id="6Vq-9a-LCr"/>
                         <outlet property="firstName" destination="3cA-Ca-Z1h" id="wx7-dE-CQX"/>
                         <outlet property="lastName" destination="oya-8B-qUz" id="Hop-Hs-Ra0"/>
@@ -1115,10 +1116,11 @@
         <image name="questionmark.circle.fill" catalog="system" width="64" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="YCw-I4-dDL"/>
         <segue reference="4wI-WJ-qnb"/>
         <segue reference="3oT-I4-cqj"/>
         <segue reference="QN9-w6-NH3"/>
         <segue reference="zJx-Cp-UWf"/>
-        <segue reference="zbj-hB-Dn6"/>
+        <segue reference="mye-8W-Kcm"/>
     </inferredMetricsTieBreakers>
 </document>

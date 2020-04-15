@@ -34,6 +34,11 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
 
         registerButton.isUserInteractionEnabled = false
         registerButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
+        
+        email.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        confirmEmail.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        password.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        confirmPassword.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
     }
     
     @objc func buttonClick() {
@@ -45,16 +50,15 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
         userDefault.set(username.text!, forKey: "username")
     }
     
-    //TODO: username & email should be unique, dob above 13?
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {  //delegate method
+    //TODO: username & email should be unique
+    @objc func textFieldDidChange(textField: UITextField) {
+
         if(!username.text!.isEmpty && !password.text!.isEmpty && !email.text!.isEmpty && !confirmPassword.text!.isEmpty && !confirmEmail.text!.isEmpty && password.text == confirmPassword.text && email.text == confirmEmail.text) {
             registerButton.isUserInteractionEnabled = true
 
         } else {
             registerButton.isUserInteractionEnabled = false
-        }
-        return true
-        
+        }        
     }
     
 

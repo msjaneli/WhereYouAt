@@ -19,34 +19,29 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
-        print(launchedBefore)
-        if launchedBefore {
-            print("Not first launch.")
-        } else {
-            if Reachability.isConnectedToNetwork(){
-                print("Connected to the Internet")
-                UserDefaults.standard.set(true, forKey: "launchedBefore")
-                if (db != nil) {
-                    api.setup()
-                }
-                username.delegate = self
-                password.delegate = self
-                loginButton.isUserInteractionEnabled = false
-                loginButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
-                username.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
-                password.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+        if Reachability.isConnectedToNetwork(){
+            print("Connected to the Internet")
+            UserDefaults.standard.set(true, forKey: "launchedBefore")
+            if (db == nil) {
+                api.setup()
+            }
+            username.delegate = self
+            password.delegate = self
+            loginButton.isUserInteractionEnabled = false
+            loginButton.addTarget(self, action:#selector(buttonClick), for: .touchUpInside)
+            username.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
+            password.addTarget(self, action: #selector(textFieldDidChange), for: UIControl.Event.editingChanged)
 
-            }
-            else{
-              print("No Connnection to Internet")
-              let alert = UIAlertController(title:"Internet offline", message: "Please check your connection and try again.", preferredStyle: .alert)
-              alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
-              NSLog("The \"OK\" alert occured.")
-              }))
-              self.present(alert, animated: true, completion: nil)
-            }
         }
+        else{
+          print("No Connnection to Internet")
+          let alert = UIAlertController(title:"Internet offline", message: "Please check your connection and try again.", preferredStyle: .alert)
+          alert.addAction(UIAlertAction(title: NSLocalizedString("OK", comment: "Default action"), style: .default, handler: { _ in
+          NSLog("The \"OK\" alert occured.")
+          }))
+          self.present(alert, animated: true, completion: nil)
+        }
+        
     }
     
     @objc func textFieldDidChange(textField: UITextField) {
@@ -67,8 +62,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func buttonClick() {
-        let userDefault = UserDefaults.standard
-        userDefault.set(username.text!, forKey: "username")
+//        let userDefault = UserDefaults.standard
+//        userDefault.set(username.text!, forKey: "username")
      }
 
 
