@@ -24,3 +24,7 @@ We are aiming to target teens, college students and young adults located in more
 ## Rationale
 
 The reason we chose to design this app is because we saw a found a need for a more social "Find Your Friends" type of app. Instead of an app like "Find my Friends" that is more of a functional use, we wanted to integrate a social component as well and actively encourage users to find where each other are and _physically_ interact with each other.
+
+## Contributions From Team Members
+
+- Sam Chan: Primarily worked on backend, worked on connecting Login/Signup/Account pages from Firebase to Storyboard, some segues, bug fixing, input sanitation, and helped with initial API setup (to communicate with backend)
