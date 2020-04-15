@@ -8,7 +8,9 @@
 
 import UIKit
 
-class FriendsViewController: UIViewController, UITableViewDelegate {
+class FriendsViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    @IBOutlet weak var friendsTable: UITableView!
     
     var myUsername = ""
     var api = API.sharedInstance
@@ -21,10 +23,13 @@ class FriendsViewController: UIViewController, UITableViewDelegate {
         
         api.getUser(username: myUsername, completionHandler: { (user) -> Void in
             self.userFriends = user.friends
-            })
+            DispatchQueue.main.async {
+                self.friendsTable.reloadData()
+            }
+        })
     }
     func numberOfSections(in tableView: UITableView) -> Int {
-    return 1
+        return 1
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

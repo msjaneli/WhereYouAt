@@ -417,7 +417,7 @@
         <!--Friends-->
         <scene sceneID="ukN-9l-Ppx">
             <objects>
-                <viewController id="JQa-4S-02g" sceneMemberID="viewController">
+                <viewController id="JQa-4S-02g" customClass="FriendsViewController" customModule="whereyouat" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0zd-i6-ghK">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -501,6 +501,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Friends" image="person.3.fill" catalog="system" selectedImage="person.3.fill" id="76s-TJ-Sjs"/>
                     <navigationItem key="navigationItem" id="HUW-Hu-bLB"/>
+                    <connections>
+                        <outlet property="friendsTable" destination="Qy3-bV-01d" id="Nwy-f0-WU5"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cY1-f3-iWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1077,7 +1080,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="AMH-xt-g1N"/>
-        <segue reference="wOE-rv-9Pa"/>
+        <segue reference="zJx-Cp-UWf"/>
         <segue reference="zbj-hB-Dn6"/>
     </inferredMetricsTieBreakers>
 </document>
