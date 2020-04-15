@@ -21,13 +21,15 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         let launchedBefore = UserDefaults.standard.bool(forKey: "launchedBefore")
         print(launchedBefore)
-        if false  {
+        if launchedBefore {
             print("Not first launch.")
         } else {
             if Reachability.isConnectedToNetwork(){
                 print("Connected to the Internet")
                 UserDefaults.standard.set(true, forKey: "launchedBefore")
-                api.setup()
+                if (db != nil) {
+                    api.setup()
+                }
                 username.delegate = self
                 password.delegate = self
                 loginButton.isUserInteractionEnabled = false
