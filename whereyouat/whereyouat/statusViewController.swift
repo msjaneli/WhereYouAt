@@ -22,7 +22,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func freeButton(_ sender: UIButton) {
         self.myStatus = "free"
         updateStatus(status:self.myStatus)
-        print("Current Status: "+self.myStatus)
+        //print("Current Status: "+self.myStatus)
     }
     
     //studying button
@@ -31,7 +31,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func studyingButton(_ sender: UIButton) {
         self.myStatus = "studying"
         updateStatus(status:self.myStatus)
-        print("Current Status: "+self.myStatus)
+        //print("Current Status: "+self.myStatus)
     }
     
     //busy button
@@ -40,7 +40,7 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
     @IBAction func busyButton(_ sender: UIButton) {
         self.myStatus = "busy"
         updateStatus(status:self.myStatus)
-        print("Current Status: "+self.myStatus)
+        //print("Current Status: "+self.myStatus)
     }
     
     
@@ -88,8 +88,8 @@ class statusViewController: UIViewController, CLLocationManagerDelegate {
        // Get most recent CLLocation from array
        // let userLocation:CLLocation = locations[0] as CLLocation
        if let userLocation = locations.first {
-           print("latitude = \(userLocation.coordinate.latitude)")
-           print("longitude = \(userLocation.coordinate.longitude)")
+           //print("latitude = \(userLocation.coordinate.latitude)")
+           //print("longitude = \(userLocation.coordinate.longitude)")
            
            let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
            

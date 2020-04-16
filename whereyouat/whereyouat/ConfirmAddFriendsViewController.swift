@@ -14,7 +14,7 @@ class ConfirmAddFriendsViewController: UIViewController {
 
     @IBAction func addFriend(_ sender: Any) {
 
-        print(myUsername + friendName.text!)
+        //print(myUsername + friendName.text!)
         if !myUsername.isEmpty && !friendName.text!.isEmpty {
             api.addUserFriends(username1: myUsername, username2: friendName.text!)
             NotificationCenter.default.post(name: NSNotification.Name(rawValue: "load"), object: nil)

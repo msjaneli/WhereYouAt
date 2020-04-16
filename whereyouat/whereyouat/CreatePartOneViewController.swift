@@ -34,9 +34,9 @@ class CreatePartOneViewController: UIViewController {
     }
 
     @objc func datePickerChanged(picker: UIDatePicker) {
-        print(Date().years(from: dob.date))
+        //print(Date().years(from: dob.date))
         if(Date().years(from: dob.date) >= 13) {
-            print("Over 13, may continue registering")
+            //print("Over 13, may continue registering")
             birthdateErrorLabel.text = ""
             advanceButton.isHidden = false
             advanceLabel.isHidden = false

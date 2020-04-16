@@ -24,7 +24,7 @@ class ViewController: UIViewController, UITextFieldDelegate{
         self.loginButton.isHidden = true
         
         if Reachability.isConnectedToNetwork(){
-            print("Connected to the Internet")
+            //print("Connected to the Internet")
             if (db == nil) {
                 api.setup()
             }
@@ -51,13 +51,13 @@ class ViewController: UIViewController, UITextFieldDelegate{
         if(!username.text!.isEmpty && !password.text!.isEmpty) {
            api.loginVerify(username: username.text!, password: password.text!, completionHandler: { (success) -> Void in
                if success {
-                   print("Login Successful")
+                   //print("Login Successful")
                 self.authenticatedLabel.text = "User authenticated."
                 self.authenticatedLabel.textColor = UIColor(red: 151.0/255.0, green: 237.0/255.0, blue: 147.0/255.0, alpha: 1.0)
                    self.loginButton.isHidden = false
                    self.loginButton.isUserInteractionEnabled = true
                } else {
-                   print("Login failed (incorrect username/password combination")
+                  // print("Login failed (incorrect username/password combination")
                     self.authenticatedLabel.text = "Incorrect username/password."
                     self.authenticatedLabel.textColor =  UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
                     self.loginButton.isUserInteractionEnabled = false

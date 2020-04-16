@@ -44,7 +44,7 @@ class API {
     func userSignUp(username: String, password: String, firstName: String, lastName: String, email: String, status: String, dob: String){
         // [START add_ada_lovelace]
                      // Add a new document with a generated ID
-        print(username, password, firstName, lastName, email, status, dob)
+        //print(username, password, firstName, lastName, email, status, dob)
         db.collection("users").document(username).setData([
                          "username": username,
                          "password": password,
@@ -124,7 +124,7 @@ class API {
                 userData.status = data?["status"] as? String ?? ""
                 userData.username = data?["username"] as? String ?? ""
                 userData.friends = data?["friends"] as? [String] ?? []
-                print(userData)
+                //print(userData)
                 completionHandler(userData)
                 return
             } else {
@@ -150,7 +150,7 @@ class API {
         db.collection("users").document(username).getDocument{ (document, error) in
             if let document = document, document.exists {
                 let dataDescription = document.data().map(String.init(describing:)) ?? "nil"
-                print("Document data: \(dataDescription)")
+                //print("Document data: \(dataDescription)")
             } else {
                 print("Document does not exist")
             }

@@ -78,17 +78,17 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
             // Check for unique username and email
             api.isUsernameUnique(username: username.text!, completionHandler: { (success) -> Void in
                     if success {
-                        print("Username is unique")
+                        //print("Username is unique")
                         self.usernameIndicator.isHidden = true
                         self.api.isEmailUnique(email: self.email.text!, completionHandler: { (success) -> Void in
                             if success {
-                                print("Email is unique")
+                                //print("Email is unique")
                                 self.emailIndicator.isHidden = true
                                 self.registerButton.isUserInteractionEnabled = true
                                 self.registerButton.isHidden = false
                                 self.registerLabel.isHidden = false
                             } else {
-                                print("Email is not unique")
+                                //print("Email is not unique")
                                 self.emailIndicator.text = "Email already in use."
                                 self.emailIndicator.textColor = UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
                                 self.emailIndicator.isHidden = false
@@ -98,7 +98,7 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
                             }
                         })
                     } else {
-                        print("Username is not unique")
+                        //print("Username is not unique")
                         self.usernameIndicator.text = "Username already in use."
                         self.usernameIndicator.textColor = UIColor(red: 255.0/255.0, green: 111.0/255.0, blue: 88.0/255.0, alpha: 1.0)
                         self.usernameIndicator.isHidden = false
@@ -108,7 +108,7 @@ class CreatePartTwoViewController: UIViewController, UITextFieldDelegate {
                     }
                 })
         } else {
-            print("Problem with the input")
+            //print("Problem with the input")
             registerButton.isHidden = true
             registerLabel.isHidden = true
             

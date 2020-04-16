@@ -149,17 +149,17 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     @IBAction func setFreeStatus(_ sender: Any) {
         myStatus = "free"
         setStatus(status: myStatus)
-        print(self.myStatus)
+        //print(self.myStatus)
     }
     @IBAction func setStudyingStatus(_ sender: Any) {
         myStatus="studying"
         setStatus(status: myStatus)
-        print(self.myStatus)
+        //print(self.myStatus)
     }
     @IBAction func setBusyStatus(_ sender: Any) {
         myStatus="busy"
         setStatus(status: myStatus)
-        print(self.myStatus)
+        //print(self.myStatus)
     }
     
     func setStatus(status: String) {

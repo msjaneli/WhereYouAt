@@ -17,7 +17,6 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         myUsername = UserDefaults.standard.string(forKey: "username") ?? ""
         api.getUser(username: myUsername, completionHandler: { (user) -> Void in
-            print(user)
             self.fullName.text = user.first + " " + user.last
             self.username.text = user.username
             //self.image = user.image
