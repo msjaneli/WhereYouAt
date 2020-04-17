@@ -56,12 +56,13 @@ class CreatePartOneViewController: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "continue" {
+            let destVC = segue.destination as! CreatePartTwoViewController
         
-        let destVC = segue.destination as! CreatePartTwoViewController
-        
-        destVC.firstName = firstName.text!
-        destVC.lastName = lastName.text!
-        destVC.dob = dob.date
+            destVC.firstName = firstName.text!
+            destVC.lastName = lastName.text!
+            destVC.dob = dob.date
+        }
 
     }
     
