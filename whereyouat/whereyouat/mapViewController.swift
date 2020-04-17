@@ -14,7 +14,7 @@ import FirebaseCore
 import FirebaseFirestore
 import FirebaseFirestoreSwift
 
-//Class for creating a friend
+//Class for creating a friend marker
 class FriendMarker: NSObject, MKAnnotation {
    
     let title: String?
@@ -59,7 +59,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var friendsStatus: [String] = []
     var friendsLat: [Double] = []
     var friendsLong: [Double] = []
-    
+
+        
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -86,8 +87,10 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 
         getStatus()
         getFriendData()
-          
+         _ = Timer.scheduledTimer(timeInterval: 30, target: self, selector: #selector(getFriendData), userInfo: nil, repeats: true)
+        
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         if self.lastLocation != nil {
@@ -201,7 +204,7 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         }
     }
     
-    func getFriendData(){
+  @objc func getFriendData(){
              let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
              if((myUsername) != nil){
                 let docRef = db.collection("users").document(myUsername!)
@@ -211,30 +214,46 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                             return
                           }
                     self.userFriends = document.get("friends") as? [String] ?? []
+                    //print(self.userFriends)
                     self.getFriendLocationsandStatuses()
                         }
          }
     }
     
     func getFriendLocationsandStatuses(){
-        var i = 0
-        for friendUsername in self.userFriends{
-            let docRef = db.collection("users").document(friendUsername)
-               docRef.addSnapshotListener { documentSnapshot, error in
-                         guard let document = documentSnapshot else {
-                           print("Error fetching document: \(error!)")
-                           return
-                         }
-                self.friendsFirst.append(document.get("first") as? String ?? "")
-                 self.friendsLast.append(document.get("last") as? String ?? "")
-                self.friendsStatus.append(document.get("status") as? String ?? "")
-                self.friendsLat.append(document.get("lat") as? Double ?? 0.0)
-                self.friendsLong.append(document.get("long") as? Double ?? 0.0)
-                i+=1
-                if (i==self.userFriends.count){
+        var j=0
+        if(self.userFriends.count > 0) {
+         for i in 0...self.userFriends.count-1 {
+             let friendUsername = self.userFriends[i]
+             let docRef = db.collection("users").document(friendUsername)
+              docRef.addSnapshotListener { documentSnapshot, error in
+                                    guard let document = documentSnapshot else {
+                                      print("Error fetching document: \(error!)")
+                                      return
+                                    }
+                if(self.friendsFirst.indices.contains(i)){
+                 self.friendsFirst[i] = document.get("first") as? String ?? ""
+                 self.friendsLast[i] = document.get("last") as? String ?? ""
+                 self.friendsStatus[i] = document.get("status") as? String ?? ""
+                 self.friendsLat[i] = document.get("lat") as? Double ?? 0.0
+                 self.friendsLong[i] = document.get("long") as? Double ?? 0.0
+                }
+                else {
+                    self.friendsFirst.append(document.get("first") as? String ?? "")
+                    self.friendsLast.append(document.get("last") as? String ?? "")
+                    self.friendsStatus.append(document.get("status") as? String ?? "")
+                    self.friendsLat.append(document.get("lat") as? Double ?? 0.0)
+                    self.friendsLong.append(document.get("long") as? Double ?? 0.0)
+                }
+                j+=1
+                
+                if(j==self.userFriends.count){
+                    print(self.friendsFirst)
+                    print(self.friendsStatus)
                     self.updateFriendMarkers()
                 }
-            }
+             }
+           }
         }
     }
     
@@ -247,13 +266,13 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
                 status: self.friendsStatus[i],
                 coordinate: (CLLocationCoordinate2D(latitude: self.friendsLat[i], longitude: self.friendsLong[i])))
                   myMap.addAnnotation(friend)
+                
             }
         }
         }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-        
         if annotation is MKUserLocation{
             return nil
         }
