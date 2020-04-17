@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="fMF-YD-JGN">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -83,7 +83,7 @@
                                 <fontDescription key="fontDescription" name="Avenir-Medium" family="Avenir" pointSize="17"/>
                                 <state key="normal" title="create your account"/>
                                 <connections>
-                                    <segue destination="fMF-YD-JGN" kind="presentation" modalPresentationStyle="fullScreen" id="XUR-BC-o4x"/>
+                                    <segue destination="OXN-iJ-gWR" kind="show" id="FtO-Xy-6H9"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XQ5-zl-7rB">
@@ -221,7 +221,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uNy-4A-RuB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2916" y="-734"/>
+            <point key="canvasLocation" x="2916" y="-711"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="QQ4-hl-fX2">
+            <objects>
+                <navigationController id="oUO-ri-orb" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="qV0-an-oSx"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wed-CQ-LRn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="o8b-rX-3ef" kind="relationship" relationship="rootViewController" id="53f-Ao-CGn"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jJn-nL-gMr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3690" y="1775"/>
         </scene>
         <!--Add Friends View Controller-->
         <scene sceneID="MBK-vX-hI3">
@@ -273,7 +290,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Fb-4F-1Sv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3993" y="72"/>
+            <point key="canvasLocation" x="4422" y="1775"/>
         </scene>
         <!--Confirm Add Friends View Controller-->
         <scene sceneID="zHs-zw-vdP">
@@ -329,7 +346,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eih-9U-FPe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="mSc-aD-oZY" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4786.9565217391309" y="71.651785714285708"/>
+            <point key="canvasLocation" x="5218.840579710145" y="1774.5535714285713"/>
         </scene>
         <!--Account-->
         <scene sceneID="fHP-X4-wEW">
@@ -412,7 +429,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QMp-ED-Osv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3066.666666666667" y="860.49107142857144"/>
+            <point key="canvasLocation" x="2916" y="938"/>
         </scene>
         <!--Friends-->
         <scene sceneID="ukN-9l-Ppx">
@@ -450,7 +467,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                                 <connections>
-                                    <segue destination="o8b-rX-3ef" kind="show" id="zJx-Cp-UWf"/>
+                                    <segue destination="oUO-ri-orb" kind="show" id="xOE-rb-BFd"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="add friends" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OhI-zV-ao5">
@@ -479,7 +496,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cY1-f3-iWy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3534.7826086956525" y="1686.8303571428571"/>
+            <point key="canvasLocation" x="2916" y="1775"/>
         </scene>
         <!--Create Part One View Controller-->
         <scene sceneID="u3o-z6-rjF">
@@ -605,25 +622,6 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
                                 </state>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="back" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BF3-Xe-W7t">
-                                <rect key="frame" x="69" y="719" width="33" height="17"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="14"/>
-                                <color key="textColor" red="1" green="0.62355989469999995" blue="0.57290689500000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nsf-CB-yZZ">
-                                <rect key="frame" x="110" y="694" width="52" height="67"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <color key="tintColor" red="0.9052893367" green="0.945184052" blue="0.86975058599999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="backButton" image="arrowshape.turn.up.left" catalog="system">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large" weight="bold"/>
-                                </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="backButton" id="bGQ-a7-Dlb"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FyR-Zi-Vjw">
                                 <rect key="frame" x="69" y="475" width="285" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -648,7 +646,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ftq-tX-wDQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="7lC-b3-Ak5" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="905.79710144927549" y="989.73214285714278"/>
+            <point key="canvasLocation" x="138" y="938"/>
         </scene>
         <!--Create Part Two View Controller-->
         <scene sceneID="qD3-nD-Mtl">
@@ -816,7 +814,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyv-uY-0v1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1698.5507246376812" y="989.73214285714278"/>
+            <point key="canvasLocation" x="941" y="938"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="slh-un-td4">
@@ -838,7 +836,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bpH-rR-Sdi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1158" y="72"/>
+            <point key="canvasLocation" x="1746" y="118"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ucD-YZ-oLn">
@@ -880,12 +878,11 @@
                                 <color key="textColor" red="0.7819772156" green="0.71430198119999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="clip" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19h-sr-sqX">
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="what's the point if you don't add your friends? use the button below to connect with your friends through their unique username" textAlignment="natural" lineBreakMode="clip" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="19h-sr-sqX">
                                 <rect key="frame" x="69" y="202" width="282" height="54"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="54" id="Hfz-fN-kE3"/>
                                 </constraints>
-                                <string key="text">what's the point if you don't add your friends? use the button below to connect with your friends through their phone number or Facebook.</string>
                                 <fontDescription key="fontDescription" name="Avenir-Book" family="Avenir" pointSize="12"/>
                                 <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -900,7 +897,7 @@
                                     <color key="titleColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="o8b-rX-3ef" kind="show" id="wOE-rv-9Pa"/>
+                                    <segue destination="oUO-ri-orb" kind="show" id="FrH-Dr-h7T"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cSa-sv-lZb">
@@ -1019,7 +1016,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1U-Kv-otg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2915.9420289855075" y="71.651785714285708"/>
+            <point key="canvasLocation" x="2916" y="118"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cdc-dG-M5l">
@@ -1033,12 +1030,12 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="OXN-iJ-gWR" kind="relationship" relationship="rootViewController" id="nwV-ct-0s9"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="CS4-CC-WdC"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6M0-6P-wj1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="138" y="991"/>
+            <point key="canvasLocation" x="-762" y="118"/>
         </scene>
     </scenes>
     <resources>
@@ -1052,7 +1049,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4wI-WJ-qnb"/>
-        <segue reference="zJx-Cp-UWf"/>
-        <segue reference="bGQ-a7-Dlb"/>
+        <segue reference="xOE-rb-BFd"/>
+        <segue reference="CS4-CC-WdC"/>
     </inferredMetricsTieBreakers>
 </document>
