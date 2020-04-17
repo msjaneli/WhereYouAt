@@ -17,8 +17,8 @@ import FirebaseFirestoreSwift
 //Class for creating a friend marker
 class FriendMarker: NSObject, MKAnnotation {
    
-    let title: String?
-    let status: String?
+    var title: String?
+    var status: String?
     var coordinate: CLLocationCoordinate2D
    
     init(name: String, status: String, coordinate: CLLocationCoordinate2D) {
@@ -59,7 +59,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     var friendsStatus: [String] = []
     var friendsLat: [Double] = []
     var friendsLong: [Double] = []
-
+    
+    var friendMarkers = [String: FriendMarker]()
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,12 +104,8 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
    // MARK: - CoreLocation Delegate Methods
    
    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    // Get most recent CLLocation from array
-    // let userLocation:CLLocation = locations[0] as CLLocation
+
     if let userLocation = locations.first {
-        //print("latitude = \(userLocation.coordinate.latitude)")
-        //print("longitude = \(userLocation.coordinate.longitude)")
-        
 
         let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let myLocation = CLLocationCoordinate2D(latitude: userLocation.coordinate.latitude, longitude: userLocation.coordinate.longitude)
@@ -121,10 +118,6 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
     
     self.lastLocation = locations.last
     
-    
-    // Call stopUpdatingLocation() to stop listening for location updates,
-    // otherwise this function will be called every time when user location changes.
-    // locationManager.stopUpdatingLocation()
     
    }
    
@@ -208,15 +201,21 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
              let myUsername = UserDefaults.standard.string(forKey: "username") ?? nil
              if((myUsername) != nil){
                 let docRef = db.collection("users").document(myUsername!)
-                docRef.addSnapshotListener { documentSnapshot, error in
-                          guard let document = documentSnapshot else {
-                            print("Error fetching document: \(error!)")
-                            return
-                          }
+                docRef.getDocument { (document, error) in
+                    if let document = document, document.exists {
                     self.userFriends = document.get("friends") as? [String] ?? []
                     //print(self.userFriends)
+                        for(key) in self.friendMarkers.keys {
+                            if !(self.userFriends.contains(key)) {
+                                self.friendMarkers.removeValue(forKey: key)
+                            }
+                        }
                     self.getFriendLocationsandStatuses()
                         }
+                    else {
+                        print("Document does not exist")
+                    }
+                }
          }
     }
     
@@ -226,50 +225,52 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
          for i in 0...self.userFriends.count-1 {
              let friendUsername = self.userFriends[i]
              let docRef = db.collection("users").document(friendUsername)
-              docRef.addSnapshotListener { documentSnapshot, error in
-                                    guard let document = documentSnapshot else {
-                                      print("Error fetching document: \(error!)")
-                                      return
-                                    }
-                if(self.friendsFirst.indices.contains(i)){
-                 self.friendsFirst[i] = document.get("first") as? String ?? ""
-                 self.friendsLast[i] = document.get("last") as? String ?? ""
-                 self.friendsStatus[i] = document.get("status") as? String ?? ""
-                 self.friendsLat[i] = document.get("lat") as? Double ?? 0.0
-                 self.friendsLong[i] = document.get("long") as? Double ?? 0.0
-                }
+              docRef.getDocument { (document, error) in
+                if let document = document, document.exists {
+                    if(self.friendMarkers.keys.contains(friendUsername))
+                    {
+                        let firstName = document.get("first") as? String ?? ""
+                        let lastName = document.get("last") as? String ?? ""
+                        self.friendMarkers[friendUsername]!.title = firstName + " " + lastName
+                        self.friendMarkers[friendUsername]!.status = document.get("status") as? String ?? ""
+                        let lat = document.get("lat") as? Double ?? 0.0
+                        let long = document.get("long") as? Double ?? 0.0
+                        self.friendMarkers[friendUsername]!.coordinate = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                    }
+                    else {
+                        let firstName = document.get("first") as? String ?? ""
+                        let lastName = document.get("last") as? String ?? ""
+                        let title = firstName + " " + lastName
+                        let status = document.get("status") as? String ?? ""
+                        let lat = document.get("lat") as? Double ?? 0.0
+                        let long = document.get("long") as? Double ?? 0.0
+                        let coord = CLLocationCoordinate2D(latitude: lat, longitude: long)
+                        self.friendMarkers[friendUsername] = FriendMarker(name: title, status: status, coordinate: coord)
+                    }
+            }
                 else {
-                    self.friendsFirst.append(document.get("first") as? String ?? "")
-                    self.friendsLast.append(document.get("last") as? String ?? "")
-                    self.friendsStatus.append(document.get("status") as? String ?? "")
-                    self.friendsLat.append(document.get("lat") as? Double ?? 0.0)
-                    self.friendsLong.append(document.get("long") as? Double ?? 0.0)
+//                    print("Document not found")
+//                    print(friendUsername)
                 }
-                j+=1
+            }
+                    j+=1
                 
                 if(j==self.userFriends.count){
-                    print(self.friendsFirst)
-                    print(self.friendsStatus)
                     self.updateFriendMarkers()
                 }
-             }
            }
         }
     }
     
     func updateFriendMarkers(){
-        if self.userFriends.count > 0 {
-        for i in 0...self.userFriends.count-1 {
-            if(!(friendsLat[i]==0.0 && friendsLong[i]==0.0)){
-            let friend = FriendMarker(
-                name: "\(self.friendsFirst[i]) \(self.friendsLast[i])",
-                status: self.friendsStatus[i],
-                coordinate: (CLLocationCoordinate2D(latitude: self.friendsLat[i], longitude: self.friendsLong[i])))
-                  myMap.addAnnotation(friend)
-                
-            }
-        }
-        }
+       for annotation in myMap.annotations{
+              if annotation is FriendMarker {
+                  myMap.removeAnnotation(annotation)
+              }
+          }
+        for (_, value) in self.friendMarkers {
+              myMap.addAnnotation(value)
+          }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -296,38 +297,6 @@ class mapViewController: UIViewController, CLLocationManagerDelegate, MKMapViewD
         annotationView.calloutOffset = CGPoint(x: -5, y: 5)
         return annotationView
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
 
-
-//THIS ISN'T WORKING
-//customizes annotation view. supposed to show a green marker (instead of red) and a callout bubble when marker is clicked
-//extension mapViewController: MKMapViewDelegate {
-//    func myMap(_ myMap: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//
-//        print("GOT HERE") //never prints
-//
-//        guard let annotation = annotation as? FriendMarker else {
-//            return nil
-//        }
-//
-//        let identifier = "friend1"
-//        var view: MKMarkerAnnotationView
-//
-//        view = MKMarkerAnnotationView(annotation: annotation, reuseIdentifier: identifier)
-//        view.markerTintColor = .green
-//        view.canShowCallout = true
-//        view.calloutOffset = CGPoint(x: -5, y: 5)
-//
-//        return view
-//    }
-//}

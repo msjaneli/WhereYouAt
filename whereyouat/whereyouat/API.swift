@@ -42,9 +42,6 @@ class API {
     }
     
     func userSignUp(username: String, password: String, firstName: String, lastName: String, email: String, status: String, dob: String){
-        // [START add_ada_lovelace]
-                     // Add a new document with a generated ID
-        //print(username, password, firstName, lastName, email, status, dob)
         db.collection("users").document(username).setData([
                          "username": username,
                          "password": password,
