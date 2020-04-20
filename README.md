@@ -25,3 +25,10 @@ We are aiming to target teens, college students and young adults located in more
 
 The reason we chose to design this app is because we saw a found a need for a more social "Find Your Friends" type of app. Instead of an app like "Find my Friends" that is more of a functional use, we wanted to integrate a social component as well and actively encourage users to find where each other are and _physically_ interact with each other.
 
+## Contributions From Team Members
+
+- Sam Chan: Primarily worked on backend, worked on connecting Login/Signup/Account pages from Firebase to Storyboard, some segues, bug fixing, input sanitation, help with display friends/dynamic reloading, and helped with initial API setup (to communicate with backend)
+- Jane Li: Set up backend server and basic API calls with Sam, implemented map API calls to pull and post user and friend locations to server, configured map to display locations, designed and implemented indicators for sign up and login status, UI clean up
+- Akshara Anand: Worked on backend and frontend, designed the UI of all the screens in Figma, created storyboards for the guide, implemented the AddFriends features and connected the AddFriends screens from Firebase to Storyboard
+- Rachel Ma: Worked on frontend in creating adding and viewing friends sections of the storyboard, and backend in connecting the ViewFriends table view to Firebase data 
+- Neha Kota: Worked on frontend by designing and implementing the Map VC. Configured location settings and got user location and status to display. Helped create annotations for displaying friends' locations. Helped pull friends location and status from the backend to display in real-time on the frontend.
