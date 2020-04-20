@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>127082705174-kpd85qsabcup7fbdr076j7pjjuerjita.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.127082705174-kpd85qsabcup7fbdr076j7pjjuerjita</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAoCuBodi6acVNypbaUsaLR9Zr7OF5xyyQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>127082705174</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>edu.duke.cs290.whereyouat</string>
+	<key>PROJECT_ID</key>
+	<string>whereyouatapp-131c7</string>
+	<key>STORAGE_BUCKET</key>
+	<string>whereyouatapp-131c7.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false/>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false/>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true/>
+	<key>IS_GCM_ENABLED</key>
+	<true/>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true/>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:127082705174:ios:49c5bc81c8b24b1d7de037</string>
+	<key>DATABASE_URL</key>
+	<string>https://whereyouatapp-131c7.firebaseio.com</string>
+</dict>
+</plist>
