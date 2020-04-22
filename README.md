@@ -1,7 +1,7 @@
 # Orange Final Project: wy@
 Group members: Sam Chan, Jane Li, Akshara Anand, Neha Kota, Rachel Ma
 
-Demo Video: []() 
+Demo Video: [YouTube](https://youtu.be/K6nkA2jLxTs) 
 
 ## Description 
 wy@ (Where You At) is an iOS app designed to make casual meet-ups easier. wy@ is focused on ease-of-access, allowing friends to communicate simple messages like invitations and statuses at the press of a button. With wy@, meeting up is as easy as checking your phone, and clicking a button. No more logistics, no more repetive messaging, just hanging out!
@@ -29,8 +29,8 @@ The reason we chose to design this app is because we saw a found a need for a mo
 
 ## Contributions From Team Members
 
-- Sam Chan: Primarily worked on backend, worked on connecting Login/Signup/Account pages from Firebase to Storyboard, some segues, bug fixing, input sanitation, help with display friends/dynamic reloading, and helped with initial API setup (to communicate with backend)
-- Jane Li: Set up backend server and basic API calls with Sam, implemented map API calls to pull and post user and friend locations to server, configured map to display locations, designed and implemented indicators for sign up and login status, UI clean up
-- Akshara Anand: Worked on backend and frontend, designed the UI of all the screens in Figma, created storyboards for the guide, implemented the AddFriends features and connected the AddFriends screens from Firebase to Storyboard
-- Rachel Ma: Worked on frontend in creating adding and viewing friends sections of the storyboard, and backend in connecting the ViewFriends table view to Firebase data 
-- Neha Kota: Worked on frontend by designing and implementing the Map VC. Configured location settings and got user location and status to display. Helped create annotations for displaying friends' locations. Helped pull friends location and status from the backend to display in real-time on the frontend.
+- Sam Chan: Primarily worked on backend, worked on connecting Login/Signup/Account pages from Firebase to Storyboard, some segues, bug fixing, input sanitation, help with display friends/dynamic reloading, and helped with initial API setup (to communicate with backend); recorded app implementation approach for video
+- Jane Li: Set up backend server and basic API calls with Sam, implemented map API calls to pull and post user and friend locations to server, configured map to display locations, designed and implemented indicators for sign up and login status, UI clean up; recorded system architecture section in video
+- Akshara Anand: Worked on backend and frontend, designed the UI of all the screens in Figma, created storyboards for the guide, implemented the AddFriends features and connected the AddFriends screens from Firebase to Storyboard; recorded app walkthrough in video
+- Rachel Ma: Worked on frontend in creating adding and viewing friends sections of the storyboard, and backend in connecting the ViewFriends table view to Firebase data; helped with UI cleanup; recorded app purpose, attributions, and edited video
+- Neha Kota: Worked on frontend by designing and implementing the Map VC. Configured location settings and got user location and status to display. Helped create annotations for displaying friends' locations. Helped pull friends location and status from the backend to display in real-time on the frontend; recorded future enhancements for video
